@@ -13,13 +13,13 @@ export const ways = [
     contain: "60% поліамід, 35% поліестер, 5% еластан",
     facture: "Ажурна",
     image:
-      "./img/main/young-woman-transparent-lingerie-posing-against-studio-background-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
+      "../assets/main/young-woman-transparent-lingerie-posing-against-studio-background-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
   },
   {
     title: "Піжама",
     description: "Очікується",
     image:
-      "./img/main/medium-shot-smiley-woman-posing-studio-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
+      "../assets/main/medium-shot-smiley-woman-posing-studio-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
     characteristics: {
       catag1:
         "Вишуканий комплект Hypnose з ніжного італійського атласу — топ + шортики.",
@@ -35,7 +35,7 @@ export const ways = [
     description: "Топ та стягуюча спідниця",
     price: "$42,86",
     image:
-      "./img/main/smiley-senior-woman-wearing-shapewear-front-view-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
+      "../assets/main/smiley-senior-woman-wearing-shapewear-front-view-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
     characteristics: {
       catag1: "Мікрофіброві трксики з широким поясом, що стягує та бюстгалтер.",
     },
@@ -46,7 +46,7 @@ export const ways = [
     title: "Трусики",
     price: "$10,71",
     image:
-      "./img/main/quality-female-lingerie-still-life-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
+      "../assets/main/quality-female-lingerie-still-life-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
     characteristics: {
       catag1:
         "Бежеві стильні трусики - бразиліани із середньою посадкою, виконані з оригінального мережива (Німеччина).",
@@ -62,7 +62,7 @@ export const ways = [
     description: "Бюстгальтер та трусики ",
     price: "42,86",
     image:
-      "./img/main/beautiful-long-legged-blonde-model-girl-with-perfect-sporty-body-with-stylish-wedding-hairstyle-fashionable-white-lace-lingerie-sits-bed-vintage-interior-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
+      "../assets/main/beautiful-long-legged-blonde-model-girl-with-perfect-sporty-body-with-stylish-wedding-hairstyle-fashionable-white-lace-lingerie-sits-bed-vintage-interior-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
     characteristics: {
       catag1:
         "Забезпечує глибоку відкриту лінію декольте спереду та комфортне прилягання збоку",
@@ -78,7 +78,7 @@ export const ways = [
     title: "Боді",
     price: "$26,79",
     image:
-      "./img/main/smiley-senior-woman-wearing-shapewear-front-view-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
+      "../assets/main/smiley-senior-woman-wearing-shapewear-front-view-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
     characteristics: {
       catag1: "Комфортне боді.",
       catag2: "Виконано з 85% бавовни, 10% еластану та 5% поліаміду.",
@@ -91,7 +91,7 @@ export const ways = [
     description: "Бюстгалтер та трусики",
     price: "$46.43",
     image:
-      "./img/main/bride-stands-with-her-back-white-silk-pajamas-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
+      "../assets/main/bride-stands-with-her-back-white-silk-pajamas-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
     characteristics: {
       catag1: "Бюстгальтер з ексклюзивним італійським мереживом, до складу якого входить органічна бавовна.",
       catag2: "Поєднує в собі стиль і натуральність - мереживо бездоганно виглядає і одночасно дуже ніжне до тіла.",
@@ -102,7 +102,7 @@ export const ways = [
   {
     title: "Бюстгалтер без кісточок",
     price: "$23,21",
-    image: "./img/main/female-lingerie-arrangement-still-life-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
+    image: "../assets/main/female-lingerie-arrangement-still-life-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp",
     characteristics: {
       catag1: "Бюстгальтер з ексклюзивним італійським мереживом, до складу якого входить органічна бавовна.",
       catag2: "Оптимальний варіант для одягу з V-подібним вирізом.",

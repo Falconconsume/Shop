@@ -10,8 +10,10 @@ export default function MenuNav() {
     return (
         <div className={style.flexBorder}>
             <Logo />
+            <div className={style.noneNav}>
             <Menu />
             <Personal />
+            </div>
         </div>
     )
 }

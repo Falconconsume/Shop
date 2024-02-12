@@ -119,6 +119,35 @@
     background-color:#40312C
 }
 
-.anchor {
-    
+.hamburger {
+    display: none;
+}
+
+.screenMopile {
+    display: flex;
+    gap: 10px;
+}
+
+
+@media (max-width: 1024px) {
+    .hamburger {
+        display: block;
+    }
+    .screenMopile {
+        display: none;
+    }
+
+}
+
+@media (max-width:768px) {
+    .nav {
+        gap: 25px;
+    }
+    .icons {
+        font-size: 16px;
+    }
+    .img {
+        max-width: 150px;
+        width: 100%;
+    }
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import React from 'react'
 import 'react-bootstrap'
 import Popup from 'reactjs-popup'
@@ -7,6 +8,8 @@ import { NavLink } from 'react-router-dom'
 import { GrUserManager } from 'react-icons/gr'
 import { FaRegHeart } from 'react-icons/fa'
 import { IoBag } from 'react-icons/io5'
+
+import HamburgerWindow from './ButtonGroup/HamburgerWindow'
 
 export default function Header() {
     const {
@@ -23,6 +26,7 @@ export default function Header() {
         line,
         flexWindow,
         anchorWindow,
+        screenMopile,
     } = style
 
     return (
@@ -30,32 +34,45 @@ export default function Header() {
             <div className={container}>
                 <div className={navFlex}>
                     <nav className={nav}>
+                        <HamburgerWindow />
                         <ul className={flex}>
-                            <NavLink className={anchor} to={'/'}>
-                                Головна
-                            </NavLink>
-                            <NavLink className={anchor} to={'/shop'}>
-                                <li>Магазин</li>
-                            </NavLink>
-                            <Popup
-                                trigger={<li className={anchor}>Покупцям</li>}
-                                position="bottom center"
-                            >
-                                <div className={flexWindow}>
-                                    <NavLink className={anchorWindow} to="/about">Про Нас</NavLink>
-                                    <br />
-                                    <NavLink className={anchorWindow} to="/delivery">
-                                        Доставка та оплата
-                                    </NavLink>
-                                </div>
-                            </Popup>
+                            <div className={screenMopile}>
+                                <NavLink className={anchor} to={'/'}>
+                                    Головна
+                                </NavLink>
+                                <NavLink className={anchor} to={'/shop'}>
+                                    <li>Магазин</li>
+                                </NavLink>
+                                <Popup
+                                    trigger={
+                                        <li className={anchor}>Покупцям</li>
+                                    }
+                                    position="bottom center"
+                                >
+                                    <div className={flexWindow}>
+                                        <NavLink
+                                            className={anchorWindow}
+                                            to="/about"
+                                        >
+                                            Про Нас
+                                        </NavLink>
+                                        <br />
+                                        <NavLink
+                                            className={anchorWindow}
+                                            to="/delivery"
+                                        >
+                                            Доставка та оплата
+                                        </NavLink>
+                                    </div>
+                                </Popup>
 
-                            <NavLink className={anchor} to={'/blogs'}>
-                                <li>Блог</li>
-                            </NavLink>
-                            <NavLink className={anchor} to={'/contacts'}>
-                                <li>Контакти</li>
-                            </NavLink>
+                                <NavLink className={anchor} to={'/blogs'}>
+                                    <li>Блог</li>
+                                </NavLink>
+                                <NavLink className={anchor} to={'/contacts'}>
+                                    <li>Контакти</li>
+                                </NavLink>
+                            </div>
                         </ul>
                         <img
                             className={img}
@@ -63,17 +80,18 @@ export default function Header() {
                             alt="Here must be a photo!"
                         />
                         <ul className={flex}>
-                            <GrUserManager className={icons} />
-                            <NavLink to={'/desired'}>
-                                <FaRegHeart className={icons} />
-                            </NavLink>
-                            <IoBag className={icons} />
+                                <GrUserManager className={icons} />
+                                <NavLink to={'/desired'}>
+                                    <FaRegHeart className={icons} />
+                                </NavLink>
+                                <IoBag className={icons} />
                         </ul>
                     </nav>
                 </div>
             </div>
             <nav className={navCenter}>
                 <div className={line}></div>
+                <div className={screenMopile}>
                 <ul className={navClothes}>
                     <NavLink className={navBarClothes} to="/underpants">
                         Трусики
@@ -94,6 +112,7 @@ export default function Header() {
                         Знижки
                     </NavLink>
                 </ul>
+                </div>
                 <div className={line}></div>
             </nav>
         </>

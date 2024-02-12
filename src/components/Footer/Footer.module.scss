@@ -59,3 +59,23 @@
     padding: 20px 0px;
     font-weight: 700;
 }
+
+.noneNav {
+    display: flex;
+    gap: 100px;
+}
+
+@media (max-width:1024px) {
+    .noneNav {
+    display: none;
+    }
+}
+
+@media (max-width:768) {
+    .line {
+        display: hidden;
+    }
+    .container {
+        text-align: center;
+    }
+}

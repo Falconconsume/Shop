@@ -71,11 +71,14 @@
     }
 }
 
-@media (max-width:768) {
+@media (max-width:768px) {
     .line {
         display: hidden;
     }
     .container {
         text-align: center;
+    }
+    .flexBorder {
+        display: none;
     }
 }

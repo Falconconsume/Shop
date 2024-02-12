@@ -17,7 +17,7 @@ export default function HamburgerWindow() {
                 />
             </div>
 
-            {isOpen && <div className={windowPopUpCenter}><PopUpModalWindow /></div>}
+            {isOpen && <div className={windowPopUpCenter}><PopUpModalWindow onSetOpen={setOpen}/></div>}
         </div>
     )
 }

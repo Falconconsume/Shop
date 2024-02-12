@@ -7,7 +7,9 @@
 .flexWindow {
     display: flex;
     flex-direction: column;
-    background-color:#40312C
+    background-color:#eddfb9;
+    color: #40312C;
+    
 }
 
 .anchor {
@@ -27,19 +29,29 @@
 
 }
 
+.modalWindow {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+    transition: 0.3s all ease;
+
+}
+
 .windowPopUp {
-    background-color: #f5f5f5;
-    max-width: 600px;
+    background-color: #fff;
+    position: absolute;
     width: 100%;
     min-height: auto;
-    margin-top: 10px;
     border-radius: 26px;
-    right: 250px;
     flex-direction: column;
-    position: fixed;
     overflow-y:auto;
-    height:100vh;
-    text-align: start;
+    height:100vh;   
 }
 
 .navBarClothes {
@@ -51,8 +63,22 @@
 .navClothes {
     display: flex;
     gap: 40px;
+}
+
+.cross {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 56px;
     
 }
+
+.flexCross {
+    display: flex;
+    justify-content: space-between;
+}
+
+
 
 @media (max-width: 1024px) {
     .hamburger {
@@ -91,5 +117,16 @@
     }
     .windowPopUpCenter {
         margin: 0 auto;
+    }
+}
+
+@media (max-width:768px) {
+    li {
+        font-size: 18px;
+        padding: 5px;
+    }
+    .anchor {
+        font-size: 18px;
+        padding: 5px;
     }
 }

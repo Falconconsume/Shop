@@ -1,33 +1,17 @@
-import { useState } from 'react'
 import React from 'react'
 import 'react-bootstrap'
-import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import style from './Header.module.scss'
 import { NavLink } from 'react-router-dom'
-import { GrUserManager } from 'react-icons/gr'
-import { FaRegHeart } from 'react-icons/fa'
-import { IoBag } from 'react-icons/io5'
+import NavClothes from './ButtonGroup/NavClothes/NavClothes'
+import PopUp from './ButtonGroup/PopUp/PopUp'
+import IconsHeader from './ButtonGroup/IconsHeader/IconsHeader'
 
 import HamburgerWindow from './ButtonGroup/HamburgerWindow'
 
 export default function Header() {
-    const {
-        flex,
-        anchor,
-        container,
-        img,
-        nav,
-        icons,
-        navFlex,
-        navClothes,
-        navCenter,
-        navBarClothes,
-        line,
-        flexWindow,
-        anchorWindow,
-        screenMopile,
-    } = style
+    const { flex, anchor, container, img, nav, navFlex, line, screenMopile } =
+        style
 
     return (
         <>
@@ -43,29 +27,8 @@ export default function Header() {
                                 <NavLink className={anchor} to={'/shop'}>
                                     <li>Магазин</li>
                                 </NavLink>
-                                <Popup
-                                    trigger={
-                                        <li className={anchor}>Покупцям</li>
-                                    }
-                                    position="bottom center"
-                                >
-                                    <div className={flexWindow}>
-                                        <NavLink
-                                            className={anchorWindow}
-                                            to="/about"
-                                        >
-                                            Про Нас
-                                        </NavLink>
-                                        <br />
-                                        <NavLink
-                                            className={anchorWindow}
-                                            to="/delivery"
-                                        >
-                                            Доставка та оплата
-                                        </NavLink>
-                                    </div>
-                                </Popup>
 
+                                <PopUp />
                                 <NavLink className={anchor} to={'/blogs'}>
                                     <li>Блог</li>
                                 </NavLink>
@@ -79,42 +42,12 @@ export default function Header() {
                             src="https://demox-000-18.site-x.pro/Media/demox-000-18/icons/logo/demox_18_logo.svg"
                             alt="Here must be a photo!"
                         />
-                        <ul className={flex}>
-                                <GrUserManager className={icons} />
-                                <NavLink to={'/desired'}>
-                                    <FaRegHeart className={icons} />
-                                </NavLink>
-                                <IoBag className={icons} />
-                        </ul>
+                        <IconsHeader />
                     </nav>
                 </div>
             </div>
-            <nav className={navCenter}>
-                <div className={line}></div>
-                <div className={screenMopile}>
-                <ul className={navClothes}>
-                    <NavLink className={navBarClothes} to="/underpants">
-                        Трусики
-                    </NavLink>
-                    <NavLink className={navBarClothes} to="/bicini">
-                        Бюстгалтери
-                    </NavLink>
-                    <NavLink className={navBarClothes} to="/news">
-                        Новинки
-                    </NavLink>
-                    <NavLink className={navBarClothes} to="/pyjamas">
-                        Боді
-                    </NavLink>
-                    <NavLink className={navBarClothes} to="/sales">
-                        Піжами
-                    </NavLink>
-                    <NavLink className={navBarClothes} to="/underpants">
-                        Знижки
-                    </NavLink>
-                </ul>
-                </div>
-                <div className={line}></div>
-            </nav>
+            <NavClothes />
+            <div className={line}></div>
         </>
     )
 }

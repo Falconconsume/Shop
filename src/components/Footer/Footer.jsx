@@ -9,7 +9,6 @@ export default function Footer() {
     const { container, line, footer } = style
     return (
         <>
-            <div className={line}></div>
             <span className={footer}>
                 <div className={container}>
                     <MenuNav />

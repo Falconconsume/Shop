@@ -14,7 +14,6 @@ export default function PopUpModalWindow({onSetOpen}) {
         navClothes,
         title,
         modalWindow,
-        flexCross,
         cross,
     } = style
     return (

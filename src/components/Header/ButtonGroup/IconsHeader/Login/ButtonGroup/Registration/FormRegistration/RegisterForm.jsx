@@ -3,7 +3,7 @@ import style from './RegisterForm.module.scss'
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 
-export default function RegisterForm({setActive}) {
+export default function RegisterForm() {
     const { label, section, input, button } = style
     const [value, setValue] = useState()
     return (
@@ -68,7 +68,7 @@ export default function RegisterForm({setActive}) {
                         required
                     />
                 </div>
-                <button onClick={() => setActive()} className={button}>Зареєструватися</button>
+                <button className={button}>Зареєструватися</button>
             </form>
         </div>
     )

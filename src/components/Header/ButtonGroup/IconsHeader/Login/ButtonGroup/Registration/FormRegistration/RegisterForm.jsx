@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import style from './RegisterForm.module.scss'
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
@@ -6,9 +7,34 @@ import PhoneInput from 'react-phone-number-input'
 export default function RegisterForm() {
     const { label, section, input, button } = style
     const [value, setValue] = useState()
+
+    async function register(email, password) {
+        try {
+            const response = await axios.post(
+                'https://reqres.in/api/register',
+                {
+                    email: email,
+                    password: password,
+                }
+            )
+            return response.data
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    function handleRegisterSubmit(event) {
+        event.preventDefault()
+        const email = event.target.elements.email.value
+        const password = event.target.elements.password.value
+        register(email, password)
+            .then((data) => console.log(data))
+            .catch((error) => console.error(error))
+    }
+
     return (
         <div>
-            <form action="submit">
+            <form onSubmit={handleRegisterSubmit}>
                 <div className={section}>
                     <label className={label} htmlFor="">
                         Ім'я

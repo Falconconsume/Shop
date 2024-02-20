@@ -1,12 +1,14 @@
 import React from 'react'
 import style from '../Login.module.scss'
-import axios from 'axios';
+import axios from 'axios'
+import { useLocalStorage } from '../../../../../../hooks/useLocalStorage'
 
 export default function FormLogin() {
     const { label, input, autorisation, labelCheck, formRemmember, button } =
         style
 
-
+    const [email, setEmail] = useLocalStorage('email', '')
+    const [password, setPassword] = useLocalStorage('password', '')
     // Функція для авторизації
     async function login(email, password) {
         try {
@@ -22,8 +24,8 @@ export default function FormLogin() {
 
     function handleLoginSubmit(event) {
         event.preventDefault()
-        const email = event.target.elements.email.value
-        const password = event.target.elements.password.value
+        setEmail(event.target.elements.email.value)
+        setPassword(event.target.elements.password.value)
         login(email, password)
             .then((data) => console.log(data))
             .catch((error) => console.error(error))

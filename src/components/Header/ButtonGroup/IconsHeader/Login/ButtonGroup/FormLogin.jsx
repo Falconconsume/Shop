@@ -1,13 +1,39 @@
 import React from 'react'
 import style from '../Login.module.scss'
+import axios from 'axios'
+import { useLocalStorage } from '../../../../../../hooks/useLocalStorage'
 
 export default function FormLogin() {
     const { label, input, autorisation, labelCheck, formRemmember, button } =
         style
 
+    const [email, setEmail] = useLocalStorage('email', '')
+    const [password, setPassword] = useLocalStorage('password', '')
+    // Функція для авторизації
+    async function login(email, password) {
+        try {
+            const response = await axios.post('https://reqres.in/api/login', {
+                email: email,
+                password: password,
+            })
+            return response.data
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    function handleLoginSubmit(event) {
+        event.preventDefault()
+        setEmail(event.target.elements.email.value)
+        setPassword(event.target.elements.password.value)
+        login(email, password)
+            .then((data) => console.log(data))
+            .catch((error) => console.error(error))
+    }
+
     return (
         <div>
-            <form action="submit">
+            <form onSubmit={handleLoginSubmit}>
                 <div className={autorisation}>
                     <label className={label} htmlFor="">
                         Email

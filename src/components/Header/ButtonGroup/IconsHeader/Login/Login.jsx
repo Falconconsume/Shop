@@ -35,7 +35,7 @@ export default function Login({ active, setActive }) {
                     </div>
                     <hr />
                     <div className={main}>
-                        <FormLogin />
+                        <FormLogin setActive = {setActive}/>
                     </div>
                     <div className={registration}>
                         <p className={registrTxt}>

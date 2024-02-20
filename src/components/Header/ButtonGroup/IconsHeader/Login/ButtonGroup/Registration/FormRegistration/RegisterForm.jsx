@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from '../../../../../../../../api/axios'
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
@@ -32,7 +32,10 @@ export default function RegisterForm() {
         invalid,
     } = style
     const [value, setValue] = useState()
-    const [password, setPassword] = useLocalStorage('')
+    const [setPassword] = useLocalStorage('')
+    const [setEmailLocalStorage] = useLocalStorage('')
+    const [setUserLocalStorage] = useLocalStorage('')
+
     const userRef = useRef()
     const errRef = useRef()
     const [user, setUser] = useState('')
@@ -60,25 +63,24 @@ export default function RegisterForm() {
     useEffect(() => {
         const result = USER_REGEX.test(user)
         console.log(result)
-        console.log(user)
         setValidName(result)
-    }, [user])
+    }, [user, setUserLocalStorage])
 
     useEffect(() => {
         const result = EMAIL_REGEX.test(email)
         console.log(result)
-        console.log(email)
+        setEmailLocalStorage(email)
         setValidEmail(result)
-    }, [email])
+    }, [email, setEmailLocalStorage])
 
     useEffect(() => {
         const result = PWD_REGEX.test(pwd)
         console.log(result)
-        console.log(pwd)
+        setPassword(pwd)
         setValidPwd(result)
         const match = pwd === matchPwd
         setValidMatch(match)
-    }, [pwd, matchPwd])
+    }, [pwd, matchPwd, setPassword])
 
     useEffect(() => {
         setErrMsg('')
@@ -102,7 +104,7 @@ export default function RegisterForm() {
                     withCredentials: true,
                 }
             )
-            console.log(res.data)
+            setUserLocalStorage(res.data)
             setSuccess(true)
         } catch (err) {
             if (!err?.res) {

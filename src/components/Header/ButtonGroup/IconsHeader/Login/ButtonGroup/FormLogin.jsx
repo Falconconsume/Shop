@@ -1,8 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react'
 import style from '../Login.module.scss'
-import axios from 'axios'
-import { useLocalStorage } from '../../../../../../hooks/useLocalStorage'
-import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setUserInfoLogin } from '../../../../../../store/slices/userSlice'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { signOut } from 'firebase/auth'
+import { toast } from 'react-toastify'
+import { MdPerson } from 'react-icons/md'
 
 export default function FormLogin({ setActive }) {
     const {
@@ -14,14 +17,17 @@ export default function FormLogin({ setActive }) {
         button,
         errmsg,
         offscreen,
+        iconMan,
+        back,
+        blockLogin,
     } = style
 
-    const [email, setEmail] = useLocalStorage('email', '')
-    const [password, setPassword] = useLocalStorage('password', '')
+    const dispatch = useDispatch()
+
     const userRef = useRef()
     const errRef = useRef()
 
-    const [user, setUser] = useState('')
+    const [email, setEmail] = useState('')
     const [pwd, setPwd] = useState('')
     const [errMsg, setErrMsg] = useState('')
     const [success, setSuccess] = useState(false)
@@ -32,37 +38,112 @@ export default function FormLogin({ setActive }) {
 
     useEffect(() => {
         setErrMsg('')
-    }, [user, pwd])
+    }, [email, pwd])
 
-    async function login(email, password) {
-        try {
-            const response = await axios.post('https://reqres.in/api/login', {
-                email: email,
-                password: password,
+    function notify() {
+        toast('Wow, you Login in!')
+    }
+
+    function saveUserInfoRegister(email, pws) {
+        const auth = getAuth()
+        signInWithEmailAndPassword(auth, email, pws)
+            .then(({ user }) => {
+                dispatch(
+                    setUserInfoLogin({
+                        email: user.email,
+                        id: user.id,
+                        token: user.accessToken,
+                    })
+                )
+                notify()
+                setActive(false)
             })
-            return response.data
-        } catch (error) {
-            console.error(error)
-        }
+            .catch((error) => {
+                if (error.code === 'auth/wrong-password') {
+                    setErrMsg('Invalid password. Please try again.')
+                } else if (error.code === 'auth/user-not-found') {
+                    setErrMsg('User not found. Please check your email.')
+                } else {
+                    console.error(error)
+                    setErrMsg('An error occurred while logging in.')
+                }
+            })
+    }
+    function removeUser() {
+        const auth = getAuth()
+        signOut(auth)
+            .then(() => {
+                dispatch(
+                    setUserInfoLogin({
+                        email: null,
+                        id: null,
+                        token: null,
+                    })
+                )
+                notify()
+                setActive(false)
+                setSuccess(false)
+            })
+            .catch((error) => {
+                if (error.code === 'auth/email-already-in-use') {
+                    setErrMsg(
+                        'This email address is already registered. Please use a different email.'
+                    )
+                } else {
+                    console.error(error)
+                    setErrMsg('An error occurred while registering.')
+                }
+            })
     }
 
     async function handleLoginSubmit(event) {
         event.preventDefault()
-        console.log(user, pwd)
-        setUser('')
-        setPwd('')
-        setSuccess(true)
+
+        try {
+            const auth = getAuth()
+            const userCredential = await signInWithEmailAndPassword(
+                auth,
+                email,
+                pwd
+            )
+            const user = userCredential.user
+
+            dispatch(
+                setUserInfoLogin({
+                    email: user.email,
+                    id: user.uid,
+                    token: user.accessToken,
+                })
+            )
+            notify()
+            setActive(false)
+            setSuccess(true)
+        } catch (error) {
+            console.error(error)
+            setErrMsg('Invalid email or password. Please try again.')
+        }
     }
 
     return (
         <>
             {success ? (
                 <section>
-                    <h1>You are logged in!</h1>
+                    <div className={blockLogin}>
+                        <h1>
+                            <MdPerson className={iconMan} />
+                        </h1>
+                        <span>{email} </span>
+                    </div>
+
                     <br />
-                    <p>
-                        <span onClick={() => setActive(false)}>
-                            Go to main Page
+                    <br />
+                    <br />
+
+                    <p onClick={() => removeUser()}>
+                        <span className={back} onClick={() => setActive(false)}>
+                            <span onClick={() => setSuccess(false)}>
+                                Вийти з профілю
+                            </span>
                         </span>
                     </p>
                 </section>
@@ -78,17 +159,17 @@ export default function FormLogin({ setActive }) {
                     <form onSubmit={handleLoginSubmit}>
                         <div className={autorisation}>
                             <label className={label} htmlFor="username">
-                                Логін
+                                Email:
                             </label>
                             <input
-                                type="text"
+                                type="email"
                                 className={input}
                                 ref={userRef}
-                                id="username"
+                                id="email"
                                 required
                                 autoComplete="off"
-                                onChange={(e) => setUser(e.target.value)}
-                                value={user}
+                                onChange={(e) => setEmail(e.target.value)}
+                                value={email}
                             />{' '}
                         </div>
                         <div className={autorisation}>
@@ -116,7 +197,12 @@ export default function FormLogin({ setActive }) {
                                 </label>
                             </div>
                         </div>
-                        <button className={button}>Увійти</button>
+                        <button
+                            onClick={() => saveUserInfoRegister(email, pwd)}
+                            className={button}
+                        >
+                            Увійти
+                        </button>
                     </form>
                 </section>
             )}

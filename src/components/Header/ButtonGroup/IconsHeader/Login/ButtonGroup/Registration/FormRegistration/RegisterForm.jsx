@@ -3,6 +3,7 @@ import style from './RegisterForm.module.scss'
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import { useLocalStorage } from '../../../../../../../../hooks/useLocalStorage'
+import { useDispatch } from 'react-redux'
 import {
     faCheck,
     faTimes,
@@ -12,13 +13,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from '../../../../../../../../api/axios'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { setUserInfoLogin } from '../../../../../../../../store/slices/userSlice'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
 const USER_REGEX = /^[a-zA-Z][a-zA-z0-9-_]{3,23}$/
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-const REGISTER_URL = '/api/register'
 
-export default function RegisterForm() {
+export default function RegisterForm({setActive}) {
     const {
         label,
         section,
@@ -35,6 +37,7 @@ export default function RegisterForm() {
     const [setPassword] = useLocalStorage('')
     const [setEmailLocalStorage] = useLocalStorage('')
     const [setUserLocalStorage] = useLocalStorage('')
+    const [setUserInfo] = useLocalStorage('')
 
     const userRef = useRef()
     const errRef = useRef()
@@ -57,25 +60,24 @@ export default function RegisterForm() {
     const [errMsg, setErrMsg] = useState('')
     const [success, setSuccess] = useState(false)
 
+    const dispatch = useDispatch()
+
     useEffect(() => {
         userRef.current.focus()
     }, [])
     useEffect(() => {
         const result = USER_REGEX.test(user)
-        console.log(result)
         setValidName(result)
     }, [user, setUserLocalStorage])
 
     useEffect(() => {
         const result = EMAIL_REGEX.test(email)
-        console.log(result)
         setEmailLocalStorage(email)
         setValidEmail(result)
     }, [email, setEmailLocalStorage])
 
     useEffect(() => {
         const result = PWD_REGEX.test(pwd)
-        console.log(result)
         setPassword(pwd)
         setValidPwd(result)
         const match = pwd === matchPwd
@@ -86,39 +88,40 @@ export default function RegisterForm() {
         setErrMsg('')
     }, [user, pwd, matchPwd])
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        const v1 = USER_REGEX.test(user)
-        const v2 = PWD_REGEX.test(pwd)
-        const v3 = EMAIL_REGEX.test(email)
-        if (!v1 || !v2 || !v3) {
-            setErrMsg('Неправильний запис')
-            return
-        }
-        try {
-            const res = await axios.post(
-                REGISTER_URL,
-                JSON.stringify({ email, pwd }),
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true,
-                }
-            )
-            setUserLocalStorage(res.data)
-            setSuccess(true)
-        } catch (err) {
-            if (!err?.res) {
-                setErrMsg('No Server Response')
-            } else if (err.res?.status === 409) {
-                setErrMsg('Username Taken!')
-            } else {
-                setErrMsg('Registration Failed')
-            }
-            errRef.current.focus()
-        }
     }
 
-    const notify = () => toast('Wow, you Registered!')
+    function notify() {
+        toast('Wow, you Registered!')
+    }
+
+    function saveUserInfoRegister(email, pws) {
+        const auth = getAuth()
+        createUserWithEmailAndPassword(auth, email, pws)
+            .then(({ user }) => {
+                setUserInfo(user)
+                dispatch(
+                    setUserInfoLogin({
+                        email: user.email,
+                        id: user.id,
+                        token: user.accessToken,
+                    })
+                )
+                notify()
+                setActive(false);
+            })
+            .catch((error) => {
+                if (error.code === 'auth/email-already-in-use') {
+                    setErrMsg(
+                        'This email address is already registered. Please use a different email.'
+                    )
+                } else {
+                    console.error(error)
+                    setErrMsg('An error occurred while registering.')
+                }
+            })
+    }
 
     return (
         <section>
@@ -200,6 +203,7 @@ export default function RegisterForm() {
                         aria-describedby="emailnote"
                         onFocus={() => setEmailFocus(true)}
                         onBlur={() => setEmailFocus(false)}
+                        value={email}
                     />
                     <p
                         id="emailnote"
@@ -237,6 +241,7 @@ export default function RegisterForm() {
                         aria-describedby="pwdnote"
                         onFocus={() => setPwdFocus(true)}
                         onBlur={() => setPwdFocus(false)}
+                        value={pwd}
                     />
                     <p
                         id="pwdnote"
@@ -294,10 +299,8 @@ export default function RegisterForm() {
                 </div>
                 <button
                     className={button}
-                    onClick={notify}
-                    disabled={
-                        !validName || !validPwd || !validMatch ? true : false
-                    }
+                    onClick={() => saveUserInfoRegister(email, pwd)}
+                    disabled={!validName || !validPwd || !validMatch}
                 >
                     Зареєструватися
                 </button>

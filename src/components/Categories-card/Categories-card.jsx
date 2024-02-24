@@ -1,7 +1,7 @@
 import React from 'react';
 import './Categories-card.module.scss';
 
-
+// картка для категорій
 const CategoriesCard = (data_categories) => {
     return (
         <>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Categories-list.module.scss';
 
+// список категорій
 const CategoryList = (data_categories) => {
     return (
         <div className="category-list-container">

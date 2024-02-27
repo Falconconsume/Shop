@@ -1,10 +1,10 @@
 import React from 'react';
 import './Green-btn.scss';
 
-const CustomButton = ({content}) => {
+const GreenBtn = ({content}) => {
     return (
-        <button className="custom-button">{content}</button>
+        <button className="green-button">{content}</button>
     );
 };
 
-export default CustomButton;
+export default GreenBtn;

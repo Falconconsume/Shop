@@ -1,0 +1,22 @@
+@import '~bootstrap/scss/bootstrap';
+
+
+@mixin make-container($padding-x: $container-padding-x) {
+    width: 100%;
+    padding-left: container-padding-x;
+    padding-right: container-padding-x;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container {
+    @include make-container(400px);
+    display: flex;
+}
+
+.filter {
+    border: 2px solid #656565;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 24px;
+}

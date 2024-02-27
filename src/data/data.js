@@ -1,4 +1,36 @@
 export const ways = [
+    // CATEGORIES
+  {
+    id: 1,
+    title: "Верхній одяг",
+    image: "#"
+  },
+  {
+    id: 2,
+    title: "Футболки та топи",
+    image: "#"
+  },
+  {
+    id: 3,
+    title: "Светри та кардигани",
+    image: "#"
+  },
+  {
+    id: 4,
+    title: "Сукні",
+    image: "#"
+  },
+  {
+    id: 5,
+    title: "Штани",
+    image: "#"
+  },
+  {
+    id: 6,
+    title: "Спортивний одяг",
+    image: "#"
+  },
+    // PRODUCTS
   {
     title: "Комплект",
     description: "(бюстгальтер та трусики)",

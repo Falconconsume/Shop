@@ -1,6 +1,6 @@
 @import '../../../styles/variables.scss';
 
-.custom-button {
+.green-button {
   background-color: $green;
   color: white;
   border: none;
@@ -13,6 +13,6 @@
   transition: 0.2s ease;
 }
 
-.custom-button:hover {
+.green-button:hover {
   transform: scale(1.02);
 }

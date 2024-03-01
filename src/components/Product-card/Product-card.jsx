@@ -1,6 +1,6 @@
-import React from 'react';
-import './Product-card.scss';
-import { CiHeart } from "react-icons/ci";
+import React from 'react'
+import './Product-card.scss'
+import { CiHeart } from 'react-icons/ci'
 
 const ProductCard = ({ name, price, img }) => {
     return (
@@ -17,6 +17,6 @@ const ProductCard = ({ name, price, img }) => {
             </div>
         </div>
     )
-};
+}
 
-export default ProductCard;
+export default ProductCard

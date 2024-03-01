@@ -22,8 +22,8 @@ export default function Registration({ active, setActive }) {
                     <hr />
                     <RegisterForm setActive={setActive}/>
                 </div>
-
-            </div>
+        
+            </div>  
         </div>
     )
 }

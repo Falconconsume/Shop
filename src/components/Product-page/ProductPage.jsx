@@ -1,4 +1,6 @@
 import React from 'react'
+import './Buy-card.scss'
+import GreenBtn from '../Buttons/Green-btn/Green-btn'
 import { CiHeart } from 'react-icons/ci'
 
 const LargeCard = ({ name, manufacture, price, img }) => {
@@ -39,6 +41,7 @@ const LargeCard = ({ name, manufacture, price, img }) => {
                     </div>
                 </div>
                 <div className="button-container">
+                    <GreenBtn content={'Купити'} />
                     <button className="favorite-button">
                         <CiHeart className="favourite-icon-card" />
                     </button>

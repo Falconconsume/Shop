@@ -4,7 +4,7 @@ import style from './ButtonGroup.module.scss'
 import Popup from 'reactjs-popup'
 import { IoClose } from 'react-icons/io5'
 
-export default function PopUpModalWindow({onSetOpen}) {
+export default function PopUpModalWindow({ onSetOpen }) {
     const {
         flexWindow,
         anchorWindow,
@@ -15,6 +15,7 @@ export default function PopUpModalWindow({onSetOpen}) {
         title,
         modalWindow,
         cross,
+        animationPopUp,
     } = style
     return (
         <div className={modalWindow}>
@@ -22,7 +23,10 @@ export default function PopUpModalWindow({onSetOpen}) {
                 <ul>
                     <div>
                         <h2 className={title}>Меню</h2>
-                        <IoClose className={cross} onClick={() => onSetOpen(false)}/>
+                        <IoClose
+                            className={cross}
+                            onClick={() => onSetOpen(false)}
+                        />
                     </div>
                     <NavLink className={anchor} to={'/'}>
                         <li>Головна</li>
@@ -31,7 +35,11 @@ export default function PopUpModalWindow({onSetOpen}) {
                         <li>Магазин</li>
                     </NavLink>
                     <Popup
-                        trigger={<li className={anchor}>Покупцям</li>}
+                        trigger={
+                            <li className={`${anchor} ${animationPopUp}`}>
+                                Покупцям
+                            </li>
+                        }
                         position="right center"
                     >
                         <div className={flexWindow}>

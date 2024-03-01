@@ -73,6 +73,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
+    transition: 0.5s all ease;
 }
 
 
@@ -130,7 +131,7 @@
 .flexWindow {
     display: flex;
     flex-direction: column;
-    background-color:#F6F2E7;
+    background-color:#fff;
 }
 
 .hamburger {

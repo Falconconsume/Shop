@@ -3,25 +3,18 @@ import HeaderMainSection from '../../../Shop/MainPart/components/Header/HeaderMa
 import { ways } from '../../../../data/data'
 import style from './ClothesCards.module.scss'
 import '@fontsource/roboto'
+import Details from './Details'
 
 export default function ClothesCards({ item, category }) {
     const {
-        color,
-        sizes,
-        itemSize,
-        buttonColor,
         headerMainSection,
         img,
         title,
         description,
         price,
         listOfUnderClothes,
-        colorSquareBlack,
-        blockColor,
         listOfItem,
-        descriptionItem,
         hoverItem,
-        btnBuyItem,
         lineThrough,
     } = style
 
@@ -60,64 +53,28 @@ export default function ClothesCards({ item, category }) {
                                     <h3 className={description}>
                                         {e.description}
                                     </h3>
-                                    <h3
-                                        className={`${e.sales} ? ${price} : ${e.price} ${e.discount}`}
-                                    >
-                                        {e.discount}
-                                    </h3>
-                                    <span className={lineThrough}>
-                                        {e.price}
-                                    </span>
+                                    {e.sales ? (
+                                        <div>
+                                            <h3
+                                                className={
+                                                    e.sales ? price : null
+                                                }
+                                            >
+                                                {e.discount}
+                                            </h3>
+                                            <span className={lineThrough}>
+                                                {e.price}
+                                            </span>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <h3 className={price}>{e.price}</h3>
+                                        </div>
+                                    )}
+
                                     {ShowDetailsAboutItem &&
                                         selectedItem === e.id &&
-                                        !e.disabled && (
-                                            <div className={descriptionItem}>
-                                                <div className={color}>
-                                                    <button
-                                                        className={`${buttonColor} ${colorSquareBlack}`}
-                                                    >
-                                                        <div
-                                                            className={
-                                                                blockColor
-                                                            }
-                                                        ></div>
-                                                    </button>
-                                                    <button
-                                                        className={buttonColor}
-                                                    ></button>
-                                                </div>
-                                                <div className={sizes}>
-                                                    <button
-                                                        className={itemSize}
-                                                    >
-                                                        XS
-                                                    </button>
-                                                    <button
-                                                        className={itemSize}
-                                                    >
-                                                        S
-                                                    </button>
-                                                    <button
-                                                        className={itemSize}
-                                                    >
-                                                        M
-                                                    </button>
-                                                    <button
-                                                        className={itemSize}
-                                                    >
-                                                        L
-                                                    </button>
-                                                    <button
-                                                        className={itemSize}
-                                                    >
-                                                        XL
-                                                    </button>
-                                                </div>
-                                                <button className={btnBuyItem}>
-                                                    Придбати
-                                                </button>
-                                            </div>
-                                        )}
+                                        !e.disabled && <Details />}
                                 </div>
                             </li>
                         )

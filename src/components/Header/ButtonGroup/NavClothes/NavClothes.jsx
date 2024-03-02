@@ -19,13 +19,13 @@ export default function NavClothes() {
                         <NavLink className={navBarClothes} to="/news">
                             Новинки
                         </NavLink>
-                        <NavLink className={navBarClothes} to="/pyjamas">
+                        <NavLink className={navBarClothes} to="/body">
                             Боді
                         </NavLink>
-                        <NavLink className={navBarClothes} to="/sales">
+                        <NavLink className={navBarClothes} to="/pyjamas">
                             Піжами
                         </NavLink>
-                        <NavLink className={navBarClothes} to="/underpants">
+                        <NavLink className={navBarClothes} to="/sales">
                             Знижки
                         </NavLink>
                     </ul>

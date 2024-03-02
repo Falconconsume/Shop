@@ -51,7 +51,8 @@
     border-radius: 26px;
     flex-direction: column;
     overflow-y:auto;
-    height:100vh;   
+    height:100vh;  
+    z-index: 10000; 
 }
 
 .navBarClothes {
@@ -78,6 +79,9 @@
     justify-content: space-between;
 }
 
+.PopUpModalWindow {
+    transition: 0.4s all;
+}
 
 
 @media (max-width: 1024px) {

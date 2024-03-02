@@ -1,9 +1,7 @@
-import React from 'react';
-import './Buy-card.scss';
-import GreenBtn from "../Buttons/Green-btn/Green-btn";
-import { CiHeart } from "react-icons/ci";
+import React from 'react'
+import { CiHeart } from 'react-icons/ci'
 
-const LargeCard = ({name, manufacture, price, img}) => {
+const LargeCard = ({ name, manufacture, price, img }) => {
     return (
         <div className="large-card">
             <div className="image-container">
@@ -16,9 +14,18 @@ const LargeCard = ({name, manufacture, price, img}) => {
                 <div className="color-container">
                     <p>Колір:</p>
                     <div className="color-options">
-                        <div className="item-option" style={{ backgroundColor: 'black' }}></div>
-                        <div className="item-option" style={{ backgroundColor: 'white' }}></div>
-                        <div className="item-option" style={{ backgroundColor: 'beige' }}></div>
+                        <div
+                            className="item-option"
+                            style={{ backgroundColor: 'black' }}
+                        ></div>
+                        <div
+                            className="item-option"
+                            style={{ backgroundColor: 'white' }}
+                        ></div>
+                        <div
+                            className="item-option"
+                            style={{ backgroundColor: 'beige' }}
+                        ></div>
                     </div>
                 </div>
                 <div className="size-container">
@@ -32,14 +39,13 @@ const LargeCard = ({name, manufacture, price, img}) => {
                     </div>
                 </div>
                 <div className="button-container">
-                    <GreenBtn content={'Купити'}/>
                     <button className="favorite-button">
-                        <CiHeart className="favourite-icon-card"/>
+                        <CiHeart className="favourite-icon-card" />
                     </button>
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default LargeCard;
+export default LargeCard

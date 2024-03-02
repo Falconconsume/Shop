@@ -37,17 +37,19 @@ export default function Login({ active, setActive }) {
                     <div className={main}>
                         <FormLogin setActive={setActive} />
                     </div>
-                    <div className={registration}>
-                        <p className={registrTxt}>
-                            Немає облікового запису?{' '}
-                            <span
-                                onClick={() => setModalRegister(true)}
-                                className={registr}
-                            >
-                                Зареєструватися
-                            </span>
-                        </p>
-                    </div>
+                    {active && (
+                        <div className={registration}>
+                            <p className={registrTxt}>
+                                Немає облікового запису?{' '}
+                                <span
+                                    onClick={() => setModalRegister(true)}
+                                    className={registr}
+                                >
+                                    Зареєструватися
+                                </span>
+                            </p>
+                        </div>
+                    )}
                 </div>
             </div>
             <Registration active={modalRegister} setActive={setModalRegister} />

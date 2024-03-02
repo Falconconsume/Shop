@@ -27,7 +27,6 @@ export default function Header() {
                                 <NavLink className={anchor} to={'/shop'}>
                                     <li>Магазин</li>
                                 </NavLink>
-
                                 <PopUp />
                                 <NavLink className={anchor} to={'/blogs'}>
                                     <li>Блог</li>

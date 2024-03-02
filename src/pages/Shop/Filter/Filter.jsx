@@ -4,10 +4,10 @@ import style from './Filter.module.scss'
 import FiltersRoll from './FilterSection/FiltersRoll'
 
 export default function Filter() {
-    const { navClothes, navBarClothes } = style
+    const { navClothes, navBarClothes, container } = style
 
     return (
-        <div>
+        <div className={container}>
             <div>
                 <ul className={navClothes}>
                     <NavLink className={navBarClothes} to="/underpants">

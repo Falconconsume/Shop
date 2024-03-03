@@ -5,6 +5,6 @@ import cardReducer from './slices/binSlice'
 export const store = configureStore({
     reducer: {
         user: userReducer,
-        card: cardReducer,
+        cart: cardReducer,
     },
 })

@@ -1,35 +1,35 @@
 export const ways = [
     // CATEGORIES
-  {
-    id: 1,
-    title: "Верхній одяг",
-    image: "#"
-  },
-  {
-    id: 2,
-    title: "Футболки та топи",
-    image: "#"
-  },
-  {
-    id: 3,
-    title: "Светри та кардигани",
-    image: "#"
-  },
-  {
-    id: 4,
-    title: "Сукні",
-    image: "#"
-  },
-  {
-    id: 5,
-    title: "Штани",
-    image: "#"
-  },
-  {
-    id: 6,
-    title: "Спортивний одяг",
-    image: "#"
-  },
+    {
+        id: 1,
+        title: 'Верхній одяг',
+        image: '#',
+    },
+    {
+        id: 2,
+        title: 'Футболки та топи',
+        image: '#',
+    },
+    {
+        id: 3,
+        title: 'Светри та кардигани',
+        image: '#',
+    },
+    {
+        id: 4,
+        title: 'Сукні',
+        image: '#',
+    },
+    {
+        id: 5,
+        title: 'Штани',
+        image: '#',
+    },
+    {
+        id: 6,
+        title: 'Спортивний одяг',
+        image: '#',
+    },
     // PRODUCTS
     {
         title: 'Комплект',
@@ -43,7 +43,14 @@ export const ways = [
         contain: '60% поліамід, 35% поліестер, 5% еластан',
         facture: 'Ажурна',
         image: 'https://demox-000-18.site-x.pro/WebCache/Media/demox-000-18/_assets/young-woman-transparent-lingerie-posing-against-studio-background-ratio-9x10-proportions-jpg-ratio-width-500-jpg.webp',
-        categories: ['underpants', 'bicini', 'newItems', 'body', 'pyjamas'],
+        categories: [
+            'underpants',
+            'bicini',
+            'newItems',
+            'body',
+            'pyjamas',
+            'default',
+        ],
         id: 0,
     },
     {
@@ -57,7 +64,14 @@ export const ways = [
             catag4: 'Короткі шортики на резинці, зі вставками мережива по краях.',
             catag5: 'Чудово сідають по фігурі та забезпечують повний комфорт.',
         },
-        categories: ['underpants', 'bicini', 'newItems', 'body', 'pyjamas'],
+        categories: [
+            'underpants',
+            'bicini',
+            'newItems',
+            'body',
+            'pyjamas',
+            'default',
+        ],
         disabled: true,
         id: 1,
     },
@@ -71,7 +85,7 @@ export const ways = [
         },
         contain: '90% нейлон, 10% спандекс',
         facture: 'Висока талія',
-        categories: ['underpants', 'bicini', 'newItems', 'body'],
+        categories: ['underpants', 'bicini', 'newItems', 'body', 'default'],
         id: 2,
     },
     {
@@ -84,7 +98,7 @@ export const ways = [
             catag3: 'Оздоблені стильними французькими бантиками позаду.',
         },
         contain: 'Бразиліани',
-        categories: ['underpants', 'newItems', 'pyjamas'],
+        categories: ['underpants', 'newItems', 'pyjamas', 'default'],
         id: 3,
     },
 
@@ -101,7 +115,7 @@ export const ways = [
             catag5: 'Виконані з розкішного італійського мережива, яке підкреслює кожен елемент оригінального малюнка.',
         },
         id: 4,
-        categories: ['newItems'],
+        categories: ['newItems', 'default'],
     },
     {
         title: 'Боді',
@@ -114,7 +128,7 @@ export const ways = [
             catag4: 'Ластовиця з 100% бавовняного полотна.',
         },
         id: 5,
-        categories: ['newItems', 'body', 'pyjamas', 'sales'],
+        categories: ['newItems', 'body', 'pyjamas', 'sales', 'default'],
         sales: true,
         discount: `$23`,
     },
@@ -129,7 +143,7 @@ export const ways = [
             catag3: 'Форма Helena: балконет на основі формованих чашок пуш-ап. Модель на стані та каркасах.',
             catag4: 'Оптимальний варіант одягу із глибоким вирізом.',
         },
-        categories: ['underpants', 'bicini', 'body'],
+        categories: ['underpants', 'bicini', 'body', 'default'],
         id: 6,
     },
     {
@@ -142,7 +156,7 @@ export const ways = [
             contain: '60% поліамід, 35% поліестер, 5% еластан',
             facture: 'Ажурна',
         },
-        categories: ['bicini', 'body'],
+        categories: ['bicini', 'body', 'default'],
         id: 7,
     },
 ]

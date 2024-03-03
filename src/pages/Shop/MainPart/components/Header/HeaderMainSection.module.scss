@@ -124,6 +124,10 @@
     z-index: 100;
 }
 
+.link {
+    color:#40312C;
+}
+
 .ulListOfPopularity.open {
     opacity: 1;
     pointer-events: auto;
@@ -147,11 +151,21 @@
         display: flex;
         justify-content: center;
     }
+
+    .ulListOfPopularity {
+        max-width: 100px;
+        position: absolute;
+    }
 }
 
 @media (max-width: 1200px) {
     .filterIcon {
         transform: scale(1)
+    }
+    .list {
+        position: relative;
+        left: -100px;
+        background-color: #fff;
     }
 }
 

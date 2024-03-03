@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import style from './ClothesCards.module.scss'
 import FavoriteIcon from '@mui/icons-material/Favorite'
+import { useDispatch } from 'react-redux'
+import { addItem } from '../../../../store/slices/binSlice'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer, toast } from 'react-toastify'
 
-export default function Details() {
+export default function Details({ item }) {
     const {
         color,
         sizes,
@@ -13,6 +17,14 @@ export default function Details() {
         btnBuyItem,
         descriptionItem,
     } = style
+
+    const dispatch = useDispatch()
+
+    const addToCard = () => {
+        dispatch(addItem(item))
+        toast('товар доданий до корзини')
+    }
+    
 
     const [isSelectedColor, setIsSelectedColor] = useState(false)
     return (
@@ -41,7 +53,10 @@ export default function Details() {
                     <button className={itemSize}>L</button>
                     <button className={itemSize}>XL</button>
                 </div>
-                <button className={btnBuyItem}>Придбати</button>
+                <button onClick={addToCard} className={btnBuyItem}>
+                    Придбати
+                </button>
+                <ToastContainer />
             </div>
         </div>
     )

@@ -3,14 +3,15 @@ import style from './HeaderMainSection.module.scss'
 import '@mui/material'
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
 import FilterPhone from './FilterPhone/FilterPhone'
+import { NavLink } from 'react-router-dom'
 
 const popularity = [
-    'Від дешевих до дорогих',
-    'Від дорогих до дешевих',
-    'Новинки',
-    'Популярні',
-    'Акційні',
-    'За замовчуванням',
+    { title: 'Від дешевих до дорогих', path: '/fromCheapToExpensive' },
+    { title: 'Від дорогих до дешевих', path: '/fromExpensiveToCheap' },
+    { title: 'Новинки', path: '/newItems' },
+    { title: 'Акційні', path: '/salesItems' },
+    { title: 'За замовчуванням', path: '/default' },
+    { title: 'Популярні', path: '/popular' },
 ]
 
 export default function HeaderMainSection({ titleSite }) {
@@ -24,6 +25,7 @@ export default function HeaderMainSection({ titleSite }) {
         ulListOfPopularity,
         open,
         filterIcon,
+        link,
     } = style
 
     const [isOpenModalFilter, setIsOpenFilterModal] = useState(false)
@@ -62,8 +64,10 @@ export default function HeaderMainSection({ titleSite }) {
                         >
                             {isOpen &&
                                 popularity.map((e) => (
-                                    <li className={list} key={e}>
-                                        {e}
+                                    <li className={list}>
+                                        <NavLink className={link} key={e} to={e.path}>
+                                            {e.title}
+                                        </NavLink>
                                     </li>
                                 ))}
                         </ul>

@@ -16,7 +16,6 @@ export default function ClothesCards({ item, category }) {
         listOfItem,
         hoverItem,
         lineThrough,
-        favoriteIcon,
     } = style
 
     const [ShowDetailsAboutItem, setShowDetailsAboutItem] = useState(false)
@@ -75,7 +74,7 @@ export default function ClothesCards({ item, category }) {
 
                                     {ShowDetailsAboutItem &&
                                         selectedItem === e.id &&
-                                        !e.disabled && <Details />}
+                                        !e.disabled && <Details item={e}/>}
                                 </div>
                             </li>
                         )

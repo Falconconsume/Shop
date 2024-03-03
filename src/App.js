@@ -15,6 +15,13 @@ import Sales from './pages/Clothes/Sales/Sales'
 import Underpants from './pages/Clothes/Underpants/Underpants'
 import AboutUs from './pages/AboutUs/AboutUs'
 import DeliveryPayment from './pages/DeliveryPayment/DeliveryPayment'
+import { Axios } from 'axios'
+import { Default } from '../src/pages/SortItemsPages/Default/Default.jsx'
+import { FromCheapToExpensive } from './pages/SortItemsPages/FromCheapToExpensive/FromCheapToExpensive'
+import { FromExpensiveToCheap } from './pages/SortItemsPages/FromExpensiveToCheap/FromExpensiveToCheap'
+import { NewItems } from './pages/SortItemsPages/News/NewItems'
+import { PopularItems } from './pages/SortItemsPages/Popular/PopularItems'
+import { SalesItems } from './pages/SortItemsPages/Sales/SalesItems'
 
 function App() {
     return (
@@ -36,11 +43,35 @@ function App() {
                     <Route path="/bicini" element={<Bicini />} />
                     <Route path="/body" element={<Body />} />
                     <Route path="/news" element={<News />} />
-                    <Route path="/pyjamas" element={<Pyjamas />} />
-                    <Route path="/sales" element={<Sales />} />
-                    <Route path="/underpants" element={<Underpants />} />
+                    <Route
+                        path="/pyjamas"
+                        element={<Pyjamas />}
+                        loader={<Axios />}
+                    />
+                    <Route
+                        path="/sales"
+                        element={<Sales />}
+                        loader={<Axios />}
+                    />
+                    <Route
+                        path="/underpants"
+                        element={<Underpants />}
+                        loader={<Axios />}
+                    />
                     <Route path="/about" element={<AboutUs />} />
                     <Route path="/delivery" element={<DeliveryPayment />} />
+                    <Route path="/default" element={<Default />} />
+                    <Route
+                        path="/fromCheapToExpensive"
+                        element={<FromCheapToExpensive />}
+                    />
+                    <Route
+                        path="/fromExpensiveToCheap"
+                        element={<FromExpensiveToCheap />}
+                    />
+                    <Route path="/newItems" element={<NewItems />} />
+                    <Route path="/popular" element={<PopularItems />} />
+                    <Route path="/salesItems" element={<SalesItems />} />
                 </Routes>
             </BrowserRouter>
         </div>

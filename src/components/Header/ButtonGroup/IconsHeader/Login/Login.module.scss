@@ -11,6 +11,7 @@
     opacity: 0;
     transition: 0.3s all ease;
     pointer-events: none;
+    z-index:1000;
 }
 
 .activeWindow {
@@ -228,4 +229,22 @@
 
 .registration {
     margin: 100px 0px;
+}
+
+.flexDesired {
+    display:flex;
+    margin:20px 0px;
+    align-items: center;
+    gap: 25px;
+
+}
+
+.desired {
+    color: #40312C;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
+.iconLove {
+    font-size: 25px;
 }

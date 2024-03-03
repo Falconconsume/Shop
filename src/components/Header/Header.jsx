@@ -39,7 +39,7 @@ export default function Header() {
                         <img
                             className={img}
                             src="https://demox-000-18.site-x.pro/Media/demox-000-18/icons/logo/demox_18_logo.svg"
-                            alt="Here must be a photo!"
+                            alt="Here must be an img!"
                         />
                         <IconsHeader />
                     </nav>

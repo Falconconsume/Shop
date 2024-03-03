@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import style from './Filter.module.scss'
 import FiltersRoll from './FilterSection/FiltersRoll'
 
@@ -10,24 +10,24 @@ export default function Filter() {
         <div className={container}>
             <div>
                 <ul className={navClothes}>
-                    <NavLink className={navBarClothes} to="/underpants">
+                    <Link className={navBarClothes} to="/underpants">
                         Трусики
-                    </NavLink>
-                    <NavLink className={navBarClothes} to="/bicini">
+                    </Link>
+                    <Link className={navBarClothes} to="/bicini">
                         Бюстгалтери
-                    </NavLink>
-                    <NavLink className={navBarClothes} to="/news">
+                    </Link>
+                    <Link className={navBarClothes} to="/news">
                         Новинки
-                    </NavLink>
-                    <NavLink className={navBarClothes} to="/pyjamas">
+                    </Link>
+                    <Link className={navBarClothes} to="/body">
                         Боді
-                    </NavLink>
-                    <NavLink className={navBarClothes} to="/sales">
+                    </Link>
+                    <Link className={navBarClothes} to="/pyjamas">
                         Піжами
-                    </NavLink>
-                    <NavLink className={navBarClothes} to="/underpants">
+                    </Link>
+                    <Link className={navBarClothes} to="/sales">
                         Знижки
-                    </NavLink>
+                    </Link>
                 </ul>
                 <FiltersRoll />
             </div>

@@ -74,7 +74,7 @@ export default function ClothesCards({ item, category }) {
 
                                     {ShowDetailsAboutItem &&
                                         selectedItem === e.id &&
-                                        !e.disabled && <Details />}
+                                        !e.disabled && <Details item={e}/>}
                                 </div>
                             </li>
                         )

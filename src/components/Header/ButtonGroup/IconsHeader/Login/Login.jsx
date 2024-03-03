@@ -35,7 +35,10 @@ export default function Login({ active, setActive }) {
                     </div>
                     <hr />
                     <div className={main}>
-                        <FormLogin setActive={setActive} />
+                        <FormLogin
+                            onClick={() => setActive(false)}
+                            setActive={setActive}
+                        />
                     </div>
                     {active && (
                         <div className={registration}>

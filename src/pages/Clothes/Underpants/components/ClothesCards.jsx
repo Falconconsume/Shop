@@ -16,6 +16,7 @@ export default function ClothesCards({ item, category }) {
         listOfItem,
         hoverItem,
         lineThrough,
+        favoriteIcon,
     } = style
 
     const [ShowDetailsAboutItem, setShowDetailsAboutItem] = useState(false)

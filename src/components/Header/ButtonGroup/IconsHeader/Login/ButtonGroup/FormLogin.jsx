@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { NavLink } from 'react-router-dom'
 import style from '../Login.module.scss'
 import { useDispatch } from 'react-redux'
 import { setUserInfoLogin } from '../../../../../../store/slices/userSlice'
@@ -6,6 +7,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { signOut } from 'firebase/auth'
 import { toast } from 'react-toastify'
 import { MdPerson } from 'react-icons/md'
+import { GiEternalLove } from 'react-icons/gi'
 
 export default function FormLogin({ setActive }) {
     const {
@@ -20,6 +22,9 @@ export default function FormLogin({ setActive }) {
         iconMan,
         back,
         blockLogin,
+        desired,
+        iconLove,
+        flexDesired,
     } = style
 
     const dispatch = useDispatch()
@@ -132,13 +137,21 @@ export default function FormLogin({ setActive }) {
                         <h1>
                             <MdPerson className={iconMan} />
                         </h1>
-                        <span>{email} </span>
+                        <span>{email}</span>
                     </div>
 
                     <br />
                     <br />
                     <br />
+                    <span className={flexDesired}>
+                        <GiEternalLove className={iconLove} />
+                        <NavLink className={desired} to="/desired">
+                            Вподобання
+                        </NavLink>
+                    </span>
 
+                    <br />
+                    <br />
                     <p onClick={() => removeUser()}>
                         <span className={back} onClick={() => setActive(false)}>
                             <span onClick={() => setSuccess(false)}>
@@ -203,7 +216,6 @@ export default function FormLogin({ setActive }) {
                         >
                             Увійти
                         </button>
-                        
                     </form>
                 </section>
             )}

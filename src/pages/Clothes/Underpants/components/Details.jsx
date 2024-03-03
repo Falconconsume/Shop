@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import style from './ClothesCards.module.scss'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+
 export default function Details() {
     const {
         color,
@@ -17,14 +19,21 @@ export default function Details() {
         <div>
             <div className={descriptionItem}>
                 <div className={color}>
-                    <button
-                        onClick={() => setIsSelectedColor(true)}
-                        className={`${buttonColor} ${colorSquareBlack}`}
-                    >
-                        <div className={blockColor}></div>
-                    </button>
-                    <button className={buttonColor}></button>
+                    <div>
+                        <button
+                            onClick={() => setIsSelectedColor(true)}
+                            className={`${buttonColor} ${colorSquareBlack}`}
+                        >
+                            <div className={blockColor}></div>
+                        </button>
+                        <button className={buttonColor}></button>
+                    </div>
+
+                    <div>
+                        <FavoriteIcon />
+                    </div>
                 </div>
+
                 <div className={sizes}>
                     <button className={itemSize}>XS</button>
                     <button className={itemSize}>S</button>

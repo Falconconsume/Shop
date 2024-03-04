@@ -15,6 +15,8 @@ import Sales from './pages/Clothes/Sales/Sales'
 import Underpants from './pages/Clothes/Underpants/Underpants'
 import AboutUs from './pages/AboutUs/AboutUs'
 import DeliveryPayment from './pages/DeliveryPayment/DeliveryPayment'
+import ProductsPage from "./pages/ProductsPage/ProductsPage";
+import products from "./data/products_data";
 
 function App() {
     return (
@@ -33,6 +35,7 @@ function App() {
                     <Route path="*" element={<ErrorPage />} />
                     <Route path="/orders" element={<Orders />} />
                     {/* Clothes */}
+                    <Route path="/products/:categoryId?" element={<ProductsPage products={products} />} />
                     <Route path="/bicini" element={<Bicini />} />
                     <Route path="/body" element={<Body />} />
                     <Route path="/news" element={<News />} />

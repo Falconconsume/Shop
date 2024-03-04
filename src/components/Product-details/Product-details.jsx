@@ -3,7 +3,7 @@ import './Buy-card.scss';
 import GreenBtn from "../Buttons/Green-btn/Green-btn";
 import { CiHeart } from "react-icons/ci";
 
-const LargeCard = ({name, manufacture, price, img}) => {
+const ProductDetails = ({name, manufacture, price, img}) => {
     return (
         <div className="large-card">
             <div className="image-container">
@@ -42,4 +42,4 @@ const LargeCard = ({name, manufacture, price, img}) => {
     );
 };
 
-export default LargeCard;
+export default ProductDetails;

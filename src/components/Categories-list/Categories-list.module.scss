@@ -1,6 +1,5 @@
 @import '../../styles/variables.scss';
 
-// список категорій
 
 .category-list-container {
     position: relative;
@@ -35,4 +34,13 @@
 
 .category-list-bottom-bar {
     bottom: 0;
+}
+
+.link {
+    text-decoration: none;
+    color: $dark-green;
+}
+
+.link:hover {
+    text-decoration: underline;
 }

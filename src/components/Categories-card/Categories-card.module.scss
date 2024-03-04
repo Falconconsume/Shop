@@ -1,6 +1,5 @@
 @import '../../styles/variables.scss';
 
-// картка для категорій
 
 h2 {
     font-family: $title-font;
@@ -43,4 +42,13 @@ h2 {
 
 .category-item:hover img {
     transform: scale(1.05);
+}
+
+.link {
+    text-decoration: none;
+    color: $dark-green;
+}
+
+.link:hover {
+    text-decoration: underline;
 }

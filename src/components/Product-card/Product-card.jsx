@@ -12,11 +12,11 @@ const ProductCard = ({ name, price, img }) => {
                     <p>{name}</p>
                 </div>
                 <div className="price">
-                    <p>{price}</p>
+                    <p>{price + '₴'}</p>
                 </div>
             </div>
         </div>
-    )
+    );
 };
 
 export default ProductCard;

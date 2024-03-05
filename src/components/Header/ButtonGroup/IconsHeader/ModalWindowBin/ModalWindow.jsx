@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './ModalWindow.module.scss'
 import img from '../../../../../assets/nav/bin.jpeg'
 import { IoClose } from 'react-icons/io5'
 import { useDispatch, useSelector } from 'react-redux'
-import { removeItem } from '../../../../../store/slices/binSlice'
+import { removeItem, loadCartItems } from '../../../../../store/slices/binSlice'
 
 export default function ModalWindow({ active, setActive, item }) {
     const {
@@ -24,8 +24,19 @@ export default function ModalWindow({ active, setActive, item }) {
     const dispatch = useDispatch()
     const cardItems = useSelector((state) => state.cart)
 
+    useEffect(() => {
+        const savedCartItems = JSON.parse(localStorage.getItem('cards')) || []
+        dispatch(loadCartItems(savedCartItems))
+    }, [dispatch])
+
     const handleRemoveItemFromBin = (itemId) => {
         dispatch(removeItem({ id: itemId }))
+
+        const savedCartItems = JSON.parse(localStorage.getItem('cards')) || []
+        const updatedCartItems = savedCartItems.filter(
+            (item) => item.id !== itemId
+        )
+        localStorage.setItem('cards', JSON.stringify(updatedCartItems))
     }
 
     return (

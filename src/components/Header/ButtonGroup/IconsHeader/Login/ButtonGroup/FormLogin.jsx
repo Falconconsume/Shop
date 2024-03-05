@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { setUserInfoLogin } from '../../../../../../store/slices/userSlice'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { signOut } from 'firebase/auth'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import { MdPerson } from 'react-icons/md'
 import { GiEternalLove } from 'react-icons/gi'
 
@@ -46,7 +46,7 @@ export default function FormLogin({ setActive }) {
     }, [email, pwd])
 
     function notify() {
-        toast('Wow, you Login in!')
+        toast.success('Wow, you Login in!')
     }
 
     function saveUserInfoRegister(email, pws) {
@@ -133,6 +133,7 @@ export default function FormLogin({ setActive }) {
         <>
             {success ? (
                 <section>
+                    <ToastContainer />
                     <div className={blockLogin}>
                         <h1>
                             <MdPerson className={iconMan} />

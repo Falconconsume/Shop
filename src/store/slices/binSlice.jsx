@@ -10,8 +10,11 @@ const cardSlice = createSlice({
         removeItem(state, action) {
             return state.filter((item) => item.id !== action.payload.id)
         },
+        loadCartItems(state, action) {
+            return action.payload
+        },
     },
 })
 
-export const { addItem, removeItem } = cardSlice.actions
+export const { addItem, removeItem, loadCartItems } = cardSlice.actions
 export default cardSlice.reducer

@@ -4,7 +4,7 @@ import FormLogin from './ButtonGroup/FormLogin'
 import Registration from './ButtonGroup/Registration/Registration'
 
 export default function Login({ active, setActive }) {
-    const { modal, modalContent, activeWindow, title, txt, cross, main } = style
+    const { modal, modalContent, activeWindow, main } = style
 
     const [modalRegister, setModalRegister] = useState(false)
     return (

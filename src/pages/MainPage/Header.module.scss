@@ -1,3 +1,13 @@
 .container {
     margin: 0 auto;
 }
+
+.header {
+    background-color: opacity(0.2);
+    z-index: 999;
+    background-color: opacify($color: #000000, $amount: 0);
+}
+
+.slider {
+    position: absolute;
+}

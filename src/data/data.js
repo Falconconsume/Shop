@@ -133,20 +133,6 @@ export const ways = [
         discount: `$23`,
     },
     {
-        title: 'Комплект',
-        description: 'Бюстгалтер та трусики',
-        price: '$46.43',
-        image: 'https://demox-000-18.site-x.pro/WebCache/Media/demox-000-18/_assets/beautiful-long-legged-blonde-model-girl-with-perfect-sporty-body-with-stylish-wedding-hairstyle-fashionable-white-lace-lingerie-sits-bed-vintage-interior-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp',
-        characteristics: {
-            catag1: 'Бюстгальтер з ексклюзивним італійським мереживом, до складу якого входить органічна бавовна.',
-            catag2: 'Поєднує в собі стиль і натуральність - мереживо бездоганно виглядає і одночасно дуже ніжне до тіла.',
-            catag3: 'Форма Helena: балконет на основі формованих чашок пуш-ап. Модель на стані та каркасах.',
-            catag4: 'Оптимальний варіант одягу із глибоким вирізом.',
-        },
-        categories: ['underpants', 'bicini', 'body', 'default'],
-        id: 6,
-    },
-    {
         title: 'Бюстгалтер без кісточок',
         price: '$23.21',
         image: 'https://demox-000-18.site-x.pro/WebCache/Media/demox-000-18/_assets/female-lingerie-arrangement-still-life-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp',
@@ -157,6 +143,6 @@ export const ways = [
             facture: 'Ажурна',
         },
         categories: ['bicini', 'body', 'default'],
-        id: 7,
+        id: 6,
     },
 ]

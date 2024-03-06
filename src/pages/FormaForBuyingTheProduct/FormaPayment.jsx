@@ -30,6 +30,7 @@ const FormaPayment = () => {
         comment,
         animationComment,
         flexSum,
+        container,
     } = style
 
     const navigate = useNavigate()
@@ -56,7 +57,7 @@ const FormaPayment = () => {
     return (
         <>
             <Header />
-            <Container maxWidth="lg" breakPoint="lg">
+            <Container className={container} maxWidth="lg" breakPoint="lg">
                 {cards.length === 0 && user === 0 ? (
                     <>
                         <Title title="Оформити замовлення" />

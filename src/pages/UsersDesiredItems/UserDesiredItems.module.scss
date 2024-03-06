@@ -6,14 +6,11 @@ $danger-color: #dc3545;
 
 @mixin make-container($padding-x: $container-padding-x) {
     width: 100%;
-    padding-left: $padding-x;
-    padding-right: $padding-x;
     margin-right: auto;
     margin-left: auto;
 }
 
 .container {
-    @include make-container(400px);
     margin-top: 50px;
 }
 

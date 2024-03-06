@@ -23,6 +23,15 @@ import { FromExpensiveToCheap } from './pages/SortItemsPages/FromExpensiveToChea
 import { NewItems } from './pages/SortItemsPages/News/NewItems'
 import { PopularItems } from './pages/SortItemsPages/Popular/PopularItems'
 import { SalesItems } from './pages/SortItemsPages/Sales/SalesItems'
+import AdditionalInfoItem from './pages/AdditionalInfoAboutItem/AdditionalInfoItem.jsx'
+
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
+AOS.init({
+    duration: 1000,
+    once: true,
+})
 
 function App() {
     return (
@@ -74,6 +83,10 @@ function App() {
                     <Route path="/popular" element={<PopularItems />} />
                     <Route path="/salesItems" element={<SalesItems />} />
                     <Route path="/formPayment" element={<FormaPayment />} />
+                    <Route
+                        path="/additional-info"
+                        element={<AdditionalInfoItem />}
+                    />
                 </Routes>
             </BrowserRouter>
         </div>

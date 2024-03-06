@@ -2,6 +2,8 @@ import React from 'react'
 import { Container, Carousel, Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import styles from './Slider.module.scss'
+import { Link } from 'react-router-dom'
+import ButtonBrown from '../BrownButton/ButtonBrown'
 
 const Slider = () => {
     return (
@@ -33,13 +35,9 @@ const Slider = () => {
                             Ви заслуговуєте на найкраще
                         </h1>
                         <p>Обирайте нижню білизну в нашому магазині</p>
-                        <a
-                            href="#"
-                            className={`${styles.linkButton} ${styles.buttonLink}`}
-                            style={{ textTransform: 'uppercase' }}
-                        >
-                            До каталогу
-                        </a>
+                        <Link to="/shop">
+                            <ButtonBrown content="До каталогу" />{' '}
+                        </Link>
                     </Carousel.Caption>
                 </Carousel.Item>
 

@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import style from './ModalWindow.module.scss'
 import img from '../../../../../assets/nav/bin.jpeg'
 import { IoClose } from 'react-icons/io5'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeItem, loadCartItems } from '../../../../../store/slices/binSlice'
+import FormaPayment from '../../../../../pages/FormaForBuyingTheProduct/FormaPayment'
 
 export default function ModalWindow({ active, setActive, item }) {
     const {
@@ -19,6 +21,7 @@ export default function ModalWindow({ active, setActive, item }) {
         binImg,
         binList,
         binPrice,
+        link,
         binTitle,
     } = style
     const dispatch = useDispatch()
@@ -101,7 +104,12 @@ export default function ModalWindow({ active, setActive, item }) {
                                 ))}
                                 <div className={footerBin}>
                                     <button className={button}>
-                                        Оформити заказ
+                                        <Link
+                                            className={link}
+                                            to="/formPayment"
+                                        >
+                                            Оформити заказ
+                                        </Link>
                                     </button>
                                     <button
                                         className={button}

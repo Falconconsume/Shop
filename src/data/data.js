@@ -39,7 +39,7 @@ export const ways = [
             catag2: 'Стан посилено широкою еластичною стрічкою для надійної підтримки',
             catag3: 'Стрінги з регулюванням обсягу по лінії талії',
         },
-        price: '$28,57',
+        price: '$28.57',
         contain: '60% поліамід, 35% поліестер, 5% еластан',
         facture: 'Ажурна',
         image: 'https://demox-000-18.site-x.pro/WebCache/Media/demox-000-18/_assets/young-woman-transparent-lingerie-posing-against-studio-background-ratio-9x10-proportions-jpg-ratio-width-500-jpg.webp',
@@ -78,7 +78,7 @@ export const ways = [
     {
         title: 'Комплект',
         description: 'Топ та стягуюча спідниця',
-        price: '$42,86',
+        price: '$42.86',
         image: 'https://demox-000-18.site-x.pro/WebCache/Media/demox-000-18/_assets/bride-stands-with-her-back-white-silk-pajamas-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp',
         characteristics: {
             catag1: 'Мікрофіброві трксики з широким поясом, що стягує та бюстгалтер.',
@@ -90,7 +90,7 @@ export const ways = [
     },
     {
         title: 'Трусики',
-        price: '$10,71',
+        price: '$10.71',
         image: 'https://demox-000-18.site-x.pro/WebCache/Media/demox-000-18/_assets/quality-female-lingerie-still-life-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp',
         characteristics: {
             catag1: 'Бежеві стильні трусики - бразиліани із середньою посадкою, виконані з оригінального мережива (Німеччина).',
@@ -105,7 +105,7 @@ export const ways = [
     {
         title: 'Весільний комплект',
         description: 'Бюстгальтер та трусики ',
-        price: '42,86',
+        price: '42.86',
         image: 'https://demox-000-18.site-x.pro/WebCache/Media/demox-000-18/_assets/beautiful-long-legged-blonde-model-girl-with-perfect-sporty-body-with-stylish-wedding-hairstyle-fashionable-white-lace-lingerie-sits-bed-vintage-interior-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp',
         characteristics: {
             catag1: 'Забезпечує глибоку відкриту лінію декольте спереду та комфортне прилягання збоку',
@@ -119,7 +119,7 @@ export const ways = [
     },
     {
         title: 'Боді',
-        price: '$26,79',
+        price: '$26.79',
         image: 'https://demox-000-18.site-x.pro/WebCache/Media/demox-000-18/_assets/smiley-senior-woman-wearing-shapewear-front-view-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp',
         characteristics: {
             catag1: 'Комфортне боді.',
@@ -148,7 +148,7 @@ export const ways = [
     },
     {
         title: 'Бюстгалтер без кісточок',
-        price: '$23,21',
+        price: '$23.21',
         image: 'https://demox-000-18.site-x.pro/WebCache/Media/demox-000-18/_assets/female-lingerie-arrangement-still-life-ratio-10x10-proportions-jpg-ratio-width-500-jpg.webp',
         characteristics: {
             catag1: 'Бюстгальтер з ексклюзивним італійським мереживом, до складу якого входить органічна бавовна.',

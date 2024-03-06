@@ -11,7 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from '../../../../../../../../api/axios'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { setUserInfoLogin } from '../../../../../../../../store/slices/userSlice'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
@@ -20,7 +20,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
 const USER_REGEX = /^[a-zA-Z][a-zA-z0-9-_]{3,23}$/
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
-export default function RegisterForm({setActive}) {
+export default function RegisterForm({ setActive }) {
     const {
         label,
         section,
@@ -93,7 +93,7 @@ export default function RegisterForm({setActive}) {
     }
 
     function notify() {
-        toast('Wow, you Registered!')
+        toast.success('Wow, you Registered!')
     }
 
     function saveUserInfoRegister(email, pws) {
@@ -109,7 +109,15 @@ export default function RegisterForm({setActive}) {
                     })
                 )
                 notify()
-                setActive(false);
+                setActive(false)
+                localStorage.setItem(
+                    'user',
+                    JSON.stringify({
+                        email: user.email,
+                        id: user.id,
+                        token: user.accessToken,
+                    })
+                )
             })
             .catch((error) => {
                 if (error.code === 'auth/email-already-in-use') {

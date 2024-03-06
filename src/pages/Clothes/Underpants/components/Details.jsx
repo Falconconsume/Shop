@@ -83,8 +83,12 @@ export default function Details({ item }) {
                 </div>
 
                 <div className={sizes}>
-                    {['XS', 'S', 'M', 'L', 'XL'].map((e) => {
-                        return <button className={itemSize}>{e}</button>
+                    {['XS', 'S', 'M', 'L', 'XL'].map((e = [], index) => {
+                        return (
+                            <button key={index} className={itemSize}>
+                                {e}
+                            </button>
+                        )
                     })}
                 </div>
                 <button onClick={addToCard} className={btnBuyItem}>

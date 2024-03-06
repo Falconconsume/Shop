@@ -31,11 +31,13 @@ const LargeCard = ({ name, manufacture, price, img }) => {
                 <div className="size-container">
                     <p>Розмір:</p>
                     <div className="color-options">
-                        <div className="item-option">XS</div>
-                        <div className="item-option">S</div>
-                        <div className="item-option">M</div>
-                        <div className="item-option">L</div>
-                        <div className="item-option">XL</div>
+                        {['XS', 'S', 'M', 'L', 'XL'].map((e, index) => {
+                            return (
+                                <div key={index} className="item-option">
+                                    {e}
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
                 <div className="button-container">

@@ -9,7 +9,7 @@ export default function Categories() {
     return (
         <div>
             <ul className={flexPhotos}>
-                {sections.map((el) => (
+                {sections.map((el = [], index) => (
                     <Link className={category} to={el.link} key={el.id}>
                         <img className={img} src={el.image} alt={el.title} />{' '}
                         <h6 className={title}>{el.title}</h6>

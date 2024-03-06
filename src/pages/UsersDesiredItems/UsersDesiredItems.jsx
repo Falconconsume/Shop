@@ -56,7 +56,7 @@ export default function UsersDesiredItems() {
                     </>
                 ) : (
                     <>
-                        <h1>Ваші Уподобання</h1>
+                        <h1 className={title}>Ваші Уподобання</h1>
                         <ul className={itemList}>
                             {desiredItems.map((item) => {
                                 return (

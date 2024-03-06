@@ -44,7 +44,6 @@ export default function HeaderMainSection({ titleSite }) {
             document.removeEventListener('mousedown', handleClickOutsidePage)
         }
     }, [])
-
     return (
         <div className={main}>
             <div className={flex}>
@@ -65,7 +64,11 @@ export default function HeaderMainSection({ titleSite }) {
                             {isOpen &&
                                 popularity.map((e) => (
                                     <li className={list}>
-                                        <NavLink className={link} key={e} to={e.path}>
+                                        <NavLink
+                                            className={link}
+                                            key={e}
+                                            to={e.path}
+                                        >
                                             {e.title}
                                         </NavLink>
                                     </li>

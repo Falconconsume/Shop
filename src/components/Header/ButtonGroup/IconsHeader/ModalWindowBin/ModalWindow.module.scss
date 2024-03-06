@@ -100,10 +100,21 @@
     min-height: 150px;
 }
 
+.link {
+    color:#6D5B4F
+}
+.link:hover {
+    color:#fff
+}
+
 .binTitle {
     font-size: 18px;
 }
 
 .binPrice {
     font-size: 12px;
+}
+
+.forma {
+    display:none;
 }

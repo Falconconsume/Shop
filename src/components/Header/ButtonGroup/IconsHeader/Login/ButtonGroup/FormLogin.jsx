@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import style from '../Login.module.scss'
+import ButtonBrown from '../../../../../BrownButton/ButtonBrown'
 import { useDispatch } from 'react-redux'
 import { setUserInfoLogin } from '../../../../../../store/slices/userSlice'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
@@ -8,15 +9,15 @@ import { signOut } from 'firebase/auth'
 import { toast, ToastContainer } from 'react-toastify'
 import { MdPerson } from 'react-icons/md'
 import { GiEternalLove } from 'react-icons/gi'
+import Headding from './Headding'
 
-export default function FormLogin({ setActive }) {
+export default function FormLogin({ setActive, active, setModalRegister }) {
     const {
         label,
         input,
         autorisation,
         labelCheck,
         formRemmember,
-        button,
         errmsg,
         offscreen,
         iconMan,
@@ -25,6 +26,9 @@ export default function FormLogin({ setActive }) {
         desired,
         iconLove,
         flexDesired,
+        registration,
+        registr,
+        registrTxt,
     } = style
 
     const dispatch = useDispatch()
@@ -133,6 +137,7 @@ export default function FormLogin({ setActive }) {
         <>
             {success ? (
                 <section>
+                    <Headding setActive={setActive} content="Ваш акаунт" />
                     <ToastContainer />
                     <div className={blockLogin}>
                         <h1>
@@ -170,6 +175,8 @@ export default function FormLogin({ setActive }) {
                     >
                         {errMsg}
                     </p>
+                    <Headding setActive={setActive} content="Увійти" />
+
                     <form onSubmit={handleLoginSubmit}>
                         <div className={autorisation}>
                             <label className={label} htmlFor="username">
@@ -211,13 +218,24 @@ export default function FormLogin({ setActive }) {
                                 </label>
                             </div>
                         </div>
-                        <button
+                        <ButtonBrown
                             onClick={() => saveUserInfoRegister(email, pwd)}
-                            className={button}
-                        >
-                            Увійти
-                        </button>
+                            content="Увійти"
+                        />
                     </form>
+                    {active && (
+                        <div className={registration}>
+                            <p className={registrTxt}>
+                                Немає облікового запису?{' '}
+                                <span
+                                    onClick={() => setModalRegister(true)}
+                                    className={registr}
+                                >
+                                    Зареєструватися
+                                </span>
+                            </p>
+                        </div>
+                    )}
                 </section>
             )}
         </>

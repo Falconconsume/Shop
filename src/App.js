@@ -15,6 +15,7 @@ import Sales from './pages/Clothes/Sales/Sales'
 import Underpants from './pages/Clothes/Underpants/Underpants'
 import AboutUs from './pages/AboutUs/AboutUs'
 import DeliveryPayment from './pages/DeliveryPayment/DeliveryPayment'
+import FormaPayment from './pages/FormaForBuyingTheProduct/FormaPayment.jsx'
 import { Axios } from 'axios'
 import { Default } from '../src/pages/SortItemsPages/Default/Default.jsx'
 import { FromCheapToExpensive } from './pages/SortItemsPages/FromCheapToExpensive/FromCheapToExpensive'
@@ -72,6 +73,7 @@ function App() {
                     <Route path="/newItems" element={<NewItems />} />
                     <Route path="/popular" element={<PopularItems />} />
                     <Route path="/salesItems" element={<SalesItems />} />
+                    <Route path="/formPayment" element={<FormaPayment />} />
                 </Routes>
             </BrowserRouter>
         </div>

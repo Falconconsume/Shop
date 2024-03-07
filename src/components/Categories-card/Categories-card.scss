@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+
+.container {
+    max-width: 75%; /* Ширина контейнера 75% от родительского элемента */
+    margin: 0 auto; /* Центрирование контейнера */
+}
+
+h2 {
+    font-family: $title-font;
+    font-size: 36px;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три колонки, равномерно распределенные */
+    gap: 20px; /* Расстояние между карточками */
+}
+
+.category-item {
+    max-width: 100%; /* Максимальная ширина карточки */
+}
+
+.category-item .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 10px;
+    text-align: center;
+    color: $dark-green;
+}
+
+.category-item img {
+    max-width: 100%;
+}
+
+.category-item h3 {
+    margin-top: 10px;
+}

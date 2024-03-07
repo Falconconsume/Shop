@@ -1,22 +1,24 @@
 import React from 'react';
-import './Categories-card.module.scss';
+import './Categories-card.scss';
+import { Link } from "react-router-dom";
 
-const CategoriesCard = ({data_categories}) => {
+const CategoriesCard = ({ categories }) => {
     return (
-        <>
+        <div className="container">
             <h2>Категорії</h2>
             <div className="categories-grid">
-                {data_categories.map(category => (
-                    <div key={category.id} className="category-item">
-                        <div className="content">
-                            <img src={category.image} alt="category"/>
-                            <h3>{category.title}</h3>
+                {categories.map(category => (
+                    <Link key={category.id} to={`/${category.id}`}>
+                        <div className="category-item">
+                            <div className="content">
+                                <img src={category.image} alt={category.id}/>
+                                <h3>{category.name}</h3>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
-        </>
-
+        </div>
     );
 };
 

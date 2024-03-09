@@ -5,7 +5,6 @@ import img from '../../../../../assets/nav/bin.jpeg'
 import { IoClose } from 'react-icons/io5'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeItem, loadCartItems } from '../../../../../store/slices/binSlice'
-import FormaPayment from '../../../../../pages/FormaForBuyingTheProduct/FormaPayment'
 
 export default function ModalWindow({ active, setActive, item }) {
     const {

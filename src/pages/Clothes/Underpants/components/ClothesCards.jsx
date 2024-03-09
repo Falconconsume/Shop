@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { ways } from '../../../../data/data'
 import style from './ClothesCards.module.scss'
 import '@fontsource/roboto'
 import Details from './Details'
 import HeaderMainSection from '../../../Shop/MainPart/components/Header/HeaderMainSection'
-import AdditionalInfoItem from '../../../AdditionalInfoAboutItem/AdditionalInfoItem'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export default function ClothesCards({ item, category }) {
     const {
@@ -20,18 +20,14 @@ export default function ClothesCards({ item, category }) {
         lineThrough,
     } = style
 
-    const [showDetailsAboutItem, setShowDetailsAboutItem] = useState(false)
+
+    const [ShowDetailsAboutItem, setShowDetailsAboutItem] = useState(false)
     const [selectedItem, setSelectedItem] = useState(null)
-    const [selectedInfoItem, setSelectedInfoItem] = useState(false)
-    const navigate = useNavigate()
 
     const handleEnteringOnItem = (e) => {
+        console.log(e)
         setShowDetailsAboutItem(true)
         setSelectedItem(e)
-    }
-
-    const handleItemClick = () => {
-        setSelectedInfoItem(true)
     }
 
     return (
@@ -42,45 +38,55 @@ export default function ClothesCards({ item, category }) {
                     .filter(
                         (e) => e.categories && e.categories.includes(category)
                     )
-                    .map((e) => (
-                        <li
-                            onMouseEnter={() => handleEnteringOnItem(e)}
-                            onMouseLeave={() => setShowDetailsAboutItem(false)}
-                            className={listOfItem}
-                            key={e.id}
-                            onClick={() => handleItemClick(e)}
-                        >
-                            <div className={hoverItem}>
-                                <img
-                                    className={img}
-                                    src={e.image}
-                                    alt="Here must be an img"
-                                />
-                                <h2 className={title}>{e.title}</h2>
-                                <h3 className={description}>{e.description}</h3>
-                                {e.sales ? (
-                                    <div>
-                                        <h3 className={e.sales ? price : null}>
-                                            {e.discount}
+                    .map((e) => {
+                        return (
+                            <li
+                                onMouseEnter={() => handleEnteringOnItem(e.id)}
+                                onMouseLeave={() =>
+                                    setShowDetailsAboutItem(false)
+                                }
+                                className={listOfItem}
+                                key={e.id}
+                            >
+                                <div className={hoverItem}>
+                                    {' '}
+                                    <Link to={`/additional-info/${e.id}`}>
+                                        <img
+                                            className={img}
+                                            src={e.image}
+                                            alt="Here must be an img"
+                                        />
+                                        <h2 className={title}>{e.title}</h2>
+                                        <h3 className={description}>
+                                            {e.description}
                                         </h3>
-                                        <span className={lineThrough}>
-                                            {e.price}
-                                        </span>
-                                    </div>
-                                ) : (
-                                    <div>
-                                        <h3 className={price}>{e.price}</h3>
-                                    </div>
-                                )}
-
-                                {showDetailsAboutItem &&
-                                    selectedItem === e.id &&
-                                    !e.disabled && <Details item={e} />}
-                            </div>
-                        </li>
-                    ))}
+                                    </Link>
+                                    {e.sales ? (
+                                        <div>
+                                            <h3
+                                                className={
+                                                    e.sales ? price : null
+                                                }
+                                            >
+                                                {e.discount}
+                                            </h3>
+                                            <span className={lineThrough}>
+                                                {e.price}
+                                            </span>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <h3 className={price}>{e.price}</h3>
+                                        </div>
+                                    )}
+                                    {ShowDetailsAboutItem &&
+                                        selectedItem === e.id &&
+                                        !e.disabled && <Details item={e} />}
+                                </div>
+                            </li>
+                        )
+                    })}
             </ul>
-
         </div>
     )
 }

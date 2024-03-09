@@ -15,7 +15,7 @@ export function Default() {
                     <div className={style.filter}>
                         <Filter />
                     </div>
-                    <ClothesCards item="За замовчуванням" category="default" />
+                    <ClothesCards item="Усі товари" category="default" />
                 </div>
             </Container>
             <Footer />

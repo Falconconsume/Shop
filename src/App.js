@@ -84,7 +84,7 @@ function App() {
                     <Route path="/salesItems" element={<SalesItems />} />
                     <Route path="/formPayment" element={<FormaPayment />} />
                     <Route
-                        path="/additional-info"
+                        path="/additional-info/:id"
                         element={<AdditionalInfoItem />}
                     />
                 </Routes>

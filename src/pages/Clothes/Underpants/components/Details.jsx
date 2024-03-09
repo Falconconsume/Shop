@@ -7,18 +7,15 @@ import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer, toast } from 'react-toastify'
 import { addDisiredItem } from '../../../../store/slices/desiredSlice'
 import { useLocalStorage } from '../../../../hooks/useLocalStorage'
+import Color from '../../../components/Colors/ColorsSquare'
 
 export default function Details({ item }) {
     const {
         color,
         sizes,
         itemSize,
-        buttonColor,
-        colorSquareBlack,
-        blockColor,
         btnBuyItem,
         descriptionItem,
-        flexCenterColor,
         favoriteColorClick,
     } = style
 
@@ -27,6 +24,8 @@ export default function Details({ item }) {
     const desiredItems = useSelector((state) => state.desired)
     const [localSaveDesiredItems] = useLocalStorage('desiredItems')
     const [cardSaving] = useLocalStorage('cards')
+    const [selectedColor, setSelectedColor] = useState(null)
+    const [selectedSize, setSelectedSize] = useState(null)
 
     const addToCard = () => {
         const existingItem = cardItems.find(
@@ -43,7 +42,6 @@ export default function Details({ item }) {
         }
     }
 
-    const [isSelectedColor, setIsSelectedColor] = useState(false)
     const [colorForIcon, setColorForIcon] = useState(false)
 
     const desiredProductLove = () => {
@@ -64,15 +62,7 @@ export default function Details({ item }) {
         <div>
             <div className={descriptionItem}>
                 <div className={color}>
-                    <div className={flexCenterColor}>
-                        <button
-                            onClick={() => setIsSelectedColor(true)}
-                            className={`${buttonColor} ${colorSquareBlack}`}
-                        >
-                            <div className={blockColor}></div>
-                        </button>
-                        <button className={buttonColor}></button>
-                    </div>
+                    <Color />
                     <div>
                         <FavoriteIcon
                             sx={{ color: 'red', fontSize: '25px' }}
@@ -83,13 +73,15 @@ export default function Details({ item }) {
                 </div>
 
                 <div className={sizes}>
-                    {['XS', 'S', 'M', 'L', 'XL'].map((e = [], index) => {
-                        return (
-                            <button key={index} className={itemSize}>
-                                {e}
-                            </button>
-                        )
-                    })}
+                    {['XS', 'S', 'M', 'L', 'XL'].map((size, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setSelectedSize(size)}
+                            className={`${itemSize} ${selectedSize === size ? 'selected-size-class' : ''}`}
+                        >
+                            {size}
+                        </button>
+                    ))}
                 </div>
                 <button onClick={addToCard} className={btnBuyItem}>
                     Придбати

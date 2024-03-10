@@ -18,7 +18,7 @@ export default function Shop() {
                     </aside>
                     <main className={flexCards} data-aos="fade-left">
                         <MainPart />
-                        <ClothesCards category="default" disabled={false} />
+                        <ClothesCards category="default" />
                     </main>
                 </div>
             </Container>

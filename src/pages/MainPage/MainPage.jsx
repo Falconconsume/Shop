@@ -12,7 +12,7 @@ import { Container } from '@mui/material'
 import Blog from '../../components/Blog/Blog'
 
 export default function MainPage() {
-    const { container, header, slider, catalogy, button } = style
+    const { container, header, slider, catalogy, button, weeding } = style
     return (
         <div className={container}>
             <div data-aos="fade-down" className={header}>
@@ -26,10 +26,16 @@ export default function MainPage() {
                 content="Категорії магазину"
                 data-aos="fade-up-right"
             />
-            <WeddingColection data-aos="fade-up-left" />
+            <li className={weeding}>
+                <WeddingColection data-aos="fade-up-left" />
+            </li>
             <Container maxWidth="lg" breakPoints="lg">
                 <li className={catalogy} data-aos="zoom-in">
-                    <ClothesCards item="Каталог товарів" category="default" />
+                    <ClothesCards
+                        item="Каталог товарів"
+                        category="default"
+                        buttonOff={false}
+                    />
                 </li>
                 <Link to="/shop" className={button} data-aos="flip-right">
                     <ButtonBrown content="До каталогу" />

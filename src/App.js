@@ -15,7 +15,6 @@ import Underpants from './pages/Clothes/Underpants/Underpants'
 import AboutUs from './pages/AboutUs/AboutUs'
 import DeliveryPayment from './pages/DeliveryPayment/DeliveryPayment'
 import FormaPayment from './pages/FormaForBuyingTheProduct/FormaPayment.jsx'
-import { Axios } from 'axios'
 import { Default } from '../src/pages/SortItemsPages/Default/Default.jsx'
 import { FromCheapToExpensive } from './pages/SortItemsPages/FromCheapToExpensive/FromCheapToExpensive'
 import { FromExpensiveToCheap } from './pages/SortItemsPages/FromExpensiveToCheap/FromExpensiveToCheap'
@@ -26,6 +25,7 @@ import AdditionalInfoItem from './pages/AdditionalInfoAboutItem/AdditionalInfoIt
 import BlogPartTop5Looks from './components/Blog/BlogPartTop5Looks/BlogPartTop5Looks.jsx'
 import MysteryOfComfort from './components/Blog/MysteryOfComfort/MysteryOfComfort'
 import SelfLove from './components/Blog/SelfLove/SelfLove'
+import ScrollToTop from './components/ScrollToTop/ScrollToTop.jsx'
 
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -39,6 +39,7 @@ function App() {
     return (
         <div className="App">
             <BrowserRouter>
+                <ScrollToTop />
                 <Routes>
                     <Route index path="/" element={<MainPage />} />
                     <Route path="/shop" element={<Shop />} />
@@ -54,21 +55,9 @@ function App() {
                     <Route path="/bicini" element={<Bicini />} />
                     <Route path="/body" element={<Body />} />
                     <Route path="/news" element={<News />} />
-                    <Route
-                        path="/pyjamas"
-                        element={<Pyjamas />}
-                        loader={<Axios />}
-                    />
-                    <Route
-                        path="/sales"
-                        element={<Sales />}
-                        loader={<Axios />}
-                    />
-                    <Route
-                        path="/underpants"
-                        element={<Underpants />}
-                        loader={<Axios />}
-                    />
+                    <Route path="/pyjamas" element={<Pyjamas />} />
+                    <Route path="/sales" element={<Sales />} />
+                    <Route path="/underpants" element={<Underpants />} />
                     <Route path="/about" element={<AboutUs />} />
                     <Route path="/delivery" element={<DeliveryPayment />} />
                     <Route path="/default" element={<Default />} />

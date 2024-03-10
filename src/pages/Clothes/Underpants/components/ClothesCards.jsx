@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ways } from '../../../../data/data'
 import style from './ClothesCards.module.scss'
 import '@fontsource/roboto'
 import Details from './Details'
 import HeaderMainSection from '../../../Shop/MainPart/components/Header/HeaderMainSection'
 import { Link } from 'react-router-dom'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
-export default function ClothesCards({ item, category, disabled = true }) {
+export default function ClothesCards({
+    item,
+    category,
+    disabled = true,
+    buttonOff = true,
+}) {
     const {
         headerMainSection,
         img,
@@ -17,10 +24,17 @@ export default function ClothesCards({ item, category, disabled = true }) {
         listOfItem,
         hoverItem,
         lineThrough,
+        overlay,
     } = style
 
     const [ShowDetailsAboutItem, setShowDetailsAboutItem] = useState(false)
     const [selectedItem, setSelectedItem] = useState(null)
+
+    useEffect(() => {
+        AOS.init({
+            duration: 2000,
+        })
+    }, [])
 
     const handleEnteringOnItem = (e) => {
         console.log(e)
@@ -34,6 +48,7 @@ export default function ClothesCards({ item, category, disabled = true }) {
                 <HeaderMainSection
                     className={headerMainSection}
                     titleSite={item}
+                    disabled={buttonOff}
                 />
             )}
             <ul className={listOfUnderClothes}>
@@ -82,7 +97,8 @@ export default function ClothesCards({ item, category, disabled = true }) {
                                             <h3 className={price}>{e.price}</h3>
                                         </div>
                                     )}
-                                    {ShowDetailsAboutItem &&
+                                    {buttonOff &&
+                                        ShowDetailsAboutItem &&
                                         selectedItem === e.id &&
                                         !e.disabled && <Details item={e} />}
                                 </div>

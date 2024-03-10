@@ -10,8 +10,7 @@ import {
     faInfoCircle,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import axios from '../../../../../../../../api/axios'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { setUserInfoLogin } from '../../../../../../../../store/slices/userSlice'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
@@ -58,7 +57,6 @@ export default function RegisterForm({ setActive }) {
     const [matchFocus, setMatchFocus] = useState(false)
 
     const [errMsg, setErrMsg] = useState('')
-    const [success, setSuccess] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -92,10 +90,6 @@ export default function RegisterForm({ setActive }) {
         e.preventDefault()
     }
 
-    function notify() {
-        toast.success('Wow, you Registered!')
-    }
-
     function saveUserInfoRegister(email, pws) {
         const auth = getAuth()
         createUserWithEmailAndPassword(auth, email, pws)
@@ -108,7 +102,6 @@ export default function RegisterForm({ setActive }) {
                         token: user.accessToken,
                     })
                 )
-                notify()
                 setActive(false)
                 localStorage.setItem(
                     'user',

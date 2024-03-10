@@ -5,9 +5,8 @@ import '@fontsource/roboto'
 import Details from './Details'
 import HeaderMainSection from '../../../Shop/MainPart/components/Header/HeaderMainSection'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 
-export default function ClothesCards({ item, category }) {
+export default function ClothesCards({ item, category, disabled = true }) {
     const {
         headerMainSection,
         img,
@@ -20,7 +19,6 @@ export default function ClothesCards({ item, category }) {
         lineThrough,
     } = style
 
-
     const [ShowDetailsAboutItem, setShowDetailsAboutItem] = useState(false)
     const [selectedItem, setSelectedItem] = useState(null)
 
@@ -32,7 +30,12 @@ export default function ClothesCards({ item, category }) {
 
     return (
         <div>
-            <HeaderMainSection className={headerMainSection} titleSite={item} />
+            {disabled && (
+                <HeaderMainSection
+                    className={headerMainSection}
+                    titleSite={item}
+                />
+            )}
             <ul className={listOfUnderClothes}>
                 {ways
                     .filter(
@@ -62,7 +65,7 @@ export default function ClothesCards({ item, category }) {
                                         </h3>
                                     </Link>
                                     {e.sales ? (
-                                        <div>
+                                        <>
                                             <h3
                                                 className={
                                                     e.sales ? price : null
@@ -73,7 +76,7 @@ export default function ClothesCards({ item, category }) {
                                             <span className={lineThrough}>
                                                 {e.price}
                                             </span>
-                                        </div>
+                                        </>
                                     ) : (
                                         <div>
                                             <h3 className={price}>{e.price}</h3>

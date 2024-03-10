@@ -42,10 +42,30 @@ export default function FormLogin({ setActive, active, setModalRegister }) {
     const [success, setSuccess] = useState(false)
 
     useEffect(() => {
-        userRef.current.focus()
+        try {
+            const storedUser = localStorage.getItem('user')
+
+            if (storedUser) {
+                const parsedUser = JSON.parse(storedUser)
+
+                if (parsedUser && typeof parsedUser === 'object') {
+                    setEmail(parsedUser.email)
+                    setPwd(parsedUser.password)
+                } else {
+                    throw new Error('Invalid user data format')
+                }
+            }
+
+            userRef.current.focus()
+        } catch (error) {
+            console.error('Error parsing user data from localStorage:', error)
+        }
     }, [])
 
     useEffect(() => {
+        const userToStore = { email, password: pwd }
+        localStorage.setItem('user', JSON.stringify(userToStore))
+
         setErrMsg('')
     }, [email, pwd])
 
@@ -78,6 +98,7 @@ export default function FormLogin({ setActive, active, setModalRegister }) {
                 }
             })
     }
+
     function removeUser() {
         const auth = getAuth()
         signOut(auth)
@@ -124,6 +145,7 @@ export default function FormLogin({ setActive, active, setModalRegister }) {
                     token: user.accessToken,
                 })
             )
+
             notify()
             setActive(false)
             setSuccess(true)

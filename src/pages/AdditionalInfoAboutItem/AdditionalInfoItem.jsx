@@ -11,7 +11,6 @@ import ClothesCards from '../Clothes/Underpants/components/ClothesCards'
 import { useDispatch, useSelector } from 'react-redux'
 import { addItem } from '../../store/slices/binSlice'
 import { toast, ToastContainer } from 'react-toastify'
-import { useSpring, animated } from 'react-spring'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 export default function AdditionalInfoItem() {
@@ -36,8 +35,6 @@ export default function AdditionalInfoItem() {
     const [activeContain, setActiveContain] = useState(false)
     const [activeType, setActiveType] = useState(false)
     const [cardSaving] = useLocalStorage('cards')
-
-
 
     const product = ways.find((e) => e.id === Number(id))
     function handleDropListContain(e) {
@@ -71,15 +68,20 @@ export default function AdditionalInfoItem() {
 
     return (
         <>
-            <Header />
+            <Header data-aos="fade-in" />
             <Container maxWidth="lg" breakPoint="lg">
-                <div className={flex}>
-                    <img src={product.image} className={img} alt="" />
-                    <div className={blockInfoItem}>
+                <div className={flex} data-aos="fade-up">
+                    <img
+                        src={product.image}
+                        className={img}
+                        alt=""
+                        data-aos="fade-right"
+                    />
+                    <div className={blockInfoItem} data-aos="fade-left">
                         <h2 className={title}>{product.title}</h2>
                         <p>{product.description}</p>
                         <p className={price}>{product.price}</p>
-                        <div className={flex}>
+                        <div className={flex} data-aos="zoom-in">
                             <Color />
                             {!product.disabled && (
                                 <li onClick={addToCard}>
@@ -91,13 +93,19 @@ export default function AdditionalInfoItem() {
                             )}
                         </div>
                         <p className={info}>Характеристики</p>
-                        <ul className={listCharacteristics}>
+                        <ul
+                            className={listCharacteristics}
+                            data-aos="fade-down"
+                        >
                             {product.characteristics.map((e = [], index) => {
                                 return <li key={index}>{e}</li>
                             })}
                         </ul>
                         {product.contain && (
-                            <div onClick={handleDropListContain}>
+                            <div
+                                onClick={handleDropListContain}
+                                data-aos="fade-up"
+                            >
                                 <p className={drop}>
                                     Склад{' '}
                                     <span>{activeContain ? '-' : '+'}</span>
@@ -110,7 +118,10 @@ export default function AdditionalInfoItem() {
                             </div>
                         )}
                         {product.facture && (
-                            <div onClick={handleDropListFacture}>
+                            <div
+                                onClick={handleDropListFacture}
+                                data-aos="fade-down"
+                            >
                                 <p className={drop}>
                                     Тип <span>{activeType ? '-' : '+'}</span>
                                 </p>
@@ -127,10 +138,11 @@ export default function AdditionalInfoItem() {
                     className={similar}
                     item="Схожі товари"
                     category="similar"
+                    data-aos="fade-zoom-in"
                 />
-                <ToastContainer />
+                <ToastContainer data-aos="fade-in" />
             </Container>
-            <Footer />
+            <Footer data-aos="fade-in" />
         </>
     )
 }

@@ -10,19 +10,19 @@ export default function Shop() {
     const { filter, flex, flexCards } = style
     return (
         <div>
-            <Header />
+            <Header data-aos="fade-down" />
             <Container maxWidth="lg" breakPoint="lg">
-                <div className={flex}>
-                    <aside className={filter}>
+                <div className={flex} data-aos="fade-up">
+                    <aside className={filter} data-aos="fade-right">
                         <Filter />
                     </aside>
-                    <main className={flexCards}>
+                    <main className={flexCards} data-aos="fade-left">
                         <MainPart />
-                        <ClothesCards category="default" active={false} />
+                        <ClothesCards category="default" disabled={false} />
                     </main>
                 </div>
             </Container>
-            <Footer />
+            <Footer data-aos="fade-up" />
         </div>
     )
 }

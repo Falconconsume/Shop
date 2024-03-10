@@ -1,12 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Blog from './pages/Blog/Blog'
+import Blogs from './pages/Blog/Blog'
 import Contacts from './pages/Contacts/Contacts'
 import { ErrorPage } from './pages/ErrorPage/Error'
 import InfoAboutShopForBuyers from './pages/InfoAboutShopForBuyers/InfoAboutShopForBuyers'
 import MainPage from './pages/MainPage/MainPage'
 import Shop from './pages/Shop/Shop'
 import UsersDesiredItems from './pages/UsersDesiredItems/UsersDesiredItems'
-import Orders from './pages/Orders/Orders'
 import Bicini from './pages/Clothes/Bicini/Bicini'
 import News from './pages/Clothes/News/News'
 import Pyjamas from './pages/Clothes/Pyjamas/Pyjamas'
@@ -24,6 +23,9 @@ import { NewItems } from './pages/SortItemsPages/News/NewItems'
 import { PopularItems } from './pages/SortItemsPages/Popular/PopularItems'
 import { SalesItems } from './pages/SortItemsPages/Sales/SalesItems'
 import AdditionalInfoItem from './pages/AdditionalInfoAboutItem/AdditionalInfoItem.jsx'
+import BlogPartTop5Looks from './components/Blog/BlogPartTop5Looks/BlogPartTop5Looks.jsx'
+import MysteryOfComfort from './components/Blog/MysteryOfComfort/MysteryOfComfort'
+import SelfLove from './components/Blog/SelfLove/SelfLove'
 
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -44,11 +46,10 @@ function App() {
                         path="/InfoForUsers"
                         element={<InfoAboutShopForBuyers />}
                     />
-                    <Route path="/blogs" element={<Blog />} />
+                    <Route path="/blogs" element={<Blogs />} />
                     <Route path="/contacts" element={<Contacts />} />
                     <Route path="/desired" element={<UsersDesiredItems />} />
                     <Route path="*" element={<ErrorPage />} />
-                    <Route path="/orders" element={<Orders />} />
                     {/* Clothes */}
                     <Route path="/bicini" element={<Bicini />} />
                     <Route path="/body" element={<Body />} />
@@ -87,6 +88,12 @@ function App() {
                         path="/additional-info/:id"
                         element={<AdditionalInfoItem />}
                     />
+                    <Route path="/top5" element={<BlogPartTop5Looks />} />
+                    <Route
+                        path="/mysteryComfort"
+                        element={<MysteryOfComfort />}
+                    />
+                    <Route path="/selfLove" element={<SelfLove />} />
                 </Routes>
             </BrowserRouter>
         </div>

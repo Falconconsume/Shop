@@ -16,7 +16,7 @@ export default function Bicini() {
                     <div className={filter}>
                         <Filter />
                     </div>
-                    <ClothesCards item="Бюстгальтери" category="bicini" />
+                    <ClothesCards item="Лівчики" category="bicini" />
                 </div>
             </Container>
             <Footer />

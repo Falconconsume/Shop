@@ -57,7 +57,12 @@ const FormaPayment = () => {
     return (
         <>
             <Header />
-            <Container className={container} maxWidth="lg" breakPoint="lg">
+            <Container
+                className={container}
+                maxWidth="lg"
+                breakPoint="lg"
+                data-aos="fade-up"
+            >
                 {cards.length === 0 && user === 0 ? (
                     <>
                         <Title title="Оформити замовлення" />

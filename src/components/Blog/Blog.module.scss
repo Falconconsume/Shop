@@ -1,5 +1,4 @@
 .blogContainer {
-    background-color: #fdf8e3;
     text-transform: uppercase;
     color: #212b0f;
     padding: 20px;
@@ -7,13 +6,19 @@
 
 .columnsContainer {
     display: flex;
-    justify-content: space-between;
+    gap:20px;
 }
 
 .column {
-    flex: 0 0 calc(33.33% - 20px);
     border: 1px solid #212b0f;
-    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    max-width: 400px;
+    width:100%;
+}
+
+.column:hover {
+    transform: translateY(-2px);
 }
 
 .column img {
@@ -24,9 +29,14 @@
     font-size: 12px;
 }
 
+.infoItems {
+    padding: 10px;
+}
+
 .title {
     font-size: 18px;
     margin-bottom: 10px;
+    font-weight:700;
 }
 
 .text {
@@ -68,3 +78,10 @@ h3::first-letter {
 .arrow {
     color: #212b0f;
 }
+
+
+@media (max-width:1200px) {
+    .dismissed {
+        display: none;
+    }
+} 

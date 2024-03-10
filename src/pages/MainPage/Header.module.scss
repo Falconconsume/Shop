@@ -3,11 +3,21 @@
 }
 
 .header {
-    background-color: opacity(0.2);
     z-index: 999;
-    background-color: opacify($color: #000000, $amount: 0);
+    position: absolute;
+    width: 100%;
 }
 
 .slider {
-    position: absolute;
+    position: relative;
+}
+
+.catalogy {
+    padding: 15px;
+}
+
+.button {
+    margin: 25px 0px;
+    display: flex;
+    justify-content: center;
 }

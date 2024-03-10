@@ -31,10 +31,15 @@ const Slider = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption className={styles.sliderCaption}>
-                        <h1 style={{ textTransform: 'uppercase' }}>
+                        <h1
+                            className={styles.title}
+                            style={{ textTransform: 'uppercase' }}
+                        >
                             Ви заслуговуєте на найкраще
                         </h1>
-                        <p>Обирайте нижню білизну в нашому магазині</p>
+                        <p className={styles.txt}>
+                            Обирайте нижню білизну в нашому магазині
+                        </p>
                         <Link to="/shop">
                             <ButtonBrown content="До каталогу" />{' '}
                         </Link>
@@ -49,10 +54,13 @@ const Slider = () => {
                         alt="Second slide"
                     />
                     <Carousel.Caption className={styles.sliderCaption}>
-                        <h1 style={{ textTransform: 'uppercase' }}>
+                        <h1
+                            className={styles.title}
+                            style={{ textTransform: 'uppercase' }}
+                        >
                             Час підкреслити свою красу зсередини!
                         </h1>
-                        <p>
+                        <p className={styles.txt}>
                             Зроби свій вибір з ТМ - де кожна деталь має значення
                         </p>
                     </Carousel.Caption>

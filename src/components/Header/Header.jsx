@@ -10,8 +10,16 @@ import IconsHeader from './ButtonGroup/IconsHeader/IconsHeader'
 import HamburgerWindow from './ButtonGroup/HamburgerWindow'
 
 export default function Header() {
-    const { flex, anchor, container, img, nav, navFlex, line, screenMopile } =
-        style
+    const {
+        flex,
+        anchor,
+        container,
+        img,
+        nav,
+        navFlex,
+        line,
+        screenMopile,
+    } = style
 
     return (
         <>

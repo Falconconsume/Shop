@@ -14,7 +14,7 @@ const popularity = [
     { title: 'Популярні', path: '/popular' },
 ]
 
-export default function HeaderMainSection({ titleSite }) {
+export default function HeaderMainSection({ titleSite, disabled }) {
     const {
         button,
         main,
@@ -48,43 +48,45 @@ export default function HeaderMainSection({ titleSite }) {
         <div className={main}>
             <div className={flex}>
                 <h1 className={title}>{titleSite}</h1>
-                <span className={spanSort}>
-                    Сортування:{' '}
-                    <span>
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className={button}
-                        >
-                            Популярні
-                        </button>
-                        <ul
-                            className={`${ulListOfPopularity} ${isOpen ? open : ''}`}
-                            ref={ref}
-                        >
-                            {isOpen &&
-                                popularity.map((e) => (
-                                    <li className={list}>
-                                        <NavLink
-                                            className={link}
-                                            key={e}
-                                            to={e.path}
-                                        >
-                                            {e.title}
-                                        </NavLink>
-                                    </li>
-                                ))}
-                        </ul>
-                    </span>
-                    <FilterAltIcon
-                        onClick={() => setIsOpenFilterModal(true)}
-                        className={filterIcon}
-                    />
-                    {isOpenModalFilter && (
-                        <FilterPhone
-                            setIsOpenFilterModal={setIsOpenFilterModal}
+                {disabled && (
+                    <span className={spanSort}>
+                        Сортування:{' '}
+                        <span>
+                            <button
+                                onClick={() => setIsOpen(!isOpen)}
+                                className={button}
+                            >
+                                Популярні
+                            </button>
+                            <ul
+                                className={`${ulListOfPopularity} ${isOpen ? open : ''}`}
+                                ref={ref}
+                            >
+                                {isOpen &&
+                                    popularity.map((e) => (
+                                        <li className={list}>
+                                            <NavLink
+                                                className={link}
+                                                key={e}
+                                                to={e.path}
+                                            >
+                                                {e.title}
+                                            </NavLink>
+                                        </li>
+                                    ))}
+                            </ul>
+                        </span>
+                        <FilterAltIcon
+                            onClick={() => setIsOpenFilterModal(true)}
+                            className={filterIcon}
                         />
-                    )}
-                </span>
+                        {isOpenModalFilter && (
+                            <FilterPhone
+                                setIsOpenFilterModal={setIsOpenFilterModal}
+                            />
+                        )}
+                    </span>
+                )}
             </div>
         </div>
     )

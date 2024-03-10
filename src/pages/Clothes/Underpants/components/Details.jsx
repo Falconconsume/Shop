@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import style from './ClothesCards.module.scss'
-import FavoriteIcon from '@mui/icons-material/Favorite'
 import { useDispatch, useSelector } from 'react-redux'
 import { addItem } from '../../../../store/slices/binSlice'
 import 'react-toastify/dist/ReactToastify.css'
@@ -8,23 +7,16 @@ import { ToastContainer, toast } from 'react-toastify'
 import { addDisiredItem } from '../../../../store/slices/desiredSlice'
 import { useLocalStorage } from '../../../../hooks/useLocalStorage'
 import Color from '../../../components/Colors/ColorsSquare'
+import FavoriteIcons from './FavoriteIcon'
 
 export default function Details({ item }) {
-    const {
-        color,
-        sizes,
-        itemSize,
-        btnBuyItem,
-        descriptionItem,
-        favoriteColorClick,
-    } = style
+    const { color, sizes, itemSize, btnBuyItem, descriptionItem } = style
 
     const dispatch = useDispatch()
     const cardItems = useSelector((state) => state.cart)
     const desiredItems = useSelector((state) => state.desired)
     const [localSaveDesiredItems] = useLocalStorage('desiredItems')
     const [cardSaving] = useLocalStorage('cards')
-    const [selectedColor, setSelectedColor] = useState(null)
     const [selectedSize, setSelectedSize] = useState(null)
 
     const addToCard = () => {
@@ -50,7 +42,7 @@ export default function Details({ item }) {
         )
 
         if (existingItem) {
-            toast.warning('Цей товар вже у вашому кошику')
+            toast.warning('Цей товар вже у ваших Уподобань!')
         } else {
             localSaveDesiredItems([...desiredItems, item])
             dispatch(addDisiredItem(item))
@@ -59,17 +51,22 @@ export default function Details({ item }) {
         setColorForIcon(true)
     }
     return (
-        <div>
+        <>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <div className={descriptionItem}>
                 <div className={color}>
                     <Color />
-                    <div>
-                        <FavoriteIcon
-                            sx={{ color: 'red', fontSize: '25px' }}
-                            onClick={desiredProductLove}
-                            className={colorForIcon && favoriteColorClick}
-                        />
-                    </div>
+                    <FavoriteIcons desiredProductLove={desiredProductLove} />
                 </div>
 
                 <div className={sizes}>
@@ -86,8 +83,7 @@ export default function Details({ item }) {
                 <button onClick={addToCard} className={btnBuyItem}>
                     Придбати
                 </button>
-                <ToastContainer />
             </div>
-        </div>
+        </>
     )
 }

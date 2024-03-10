@@ -139,6 +139,7 @@ export default function AdditionalInfoItem() {
                     item="Схожі товари"
                     category="similar"
                     data-aos="fade-zoom-in"
+                    buttonOff={false}
                 />
                 <ToastContainer data-aos="fade-in" />
             </Container>

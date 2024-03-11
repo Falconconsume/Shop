@@ -63,6 +63,7 @@
     "react-phone-number-input": "^3.3.9",
     "react-redux": "^9.1.0",
     "react-refresh": "^0.11.0",
+    "react-scripts": "^5.0.1",
     "react-scroll": "^1.9.0",
     "react-scroll-animations": "^0.0.1",
     "react-spring": "^9.7.3",
@@ -84,9 +85,10 @@
     "workbox-webpack-plugin": "^6.4.1"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

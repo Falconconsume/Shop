@@ -10,6 +10,7 @@ import ButtonBrown from '../../components/BrownButton/ButtonBrown'
 import { Link } from 'react-router-dom'
 import { Container } from '@mui/material'
 import Blog from '../../components/Blog/Blog'
+import { ToastContainer } from 'react-toastify'
 
 export default function MainPage() {
     const { container, header, slider, catalogy, button, weeding } = style
@@ -43,6 +44,18 @@ export default function MainPage() {
                 <Blog data-aos="flip-left" />
             </Container>
             <Footer data-aos="fade-up" />
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
     )
 }

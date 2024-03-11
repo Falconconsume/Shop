@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Blog.module.scss'
 import BlogsParts from './BlogsParts'
+import { ToastContainer } from 'react-toastify'
 
 const Blog = ({ title }) => {
     return (
@@ -42,6 +43,18 @@ const Blog = ({ title }) => {
                         link="/selfLove"
                     />
                 </li>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
             </ul>
         </div>
     )

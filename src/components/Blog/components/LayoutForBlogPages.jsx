@@ -32,8 +32,12 @@ export default function LayoutForBlogPages({
         <>
             <Header data-aos="fade-down" />
             <Container maxWidth="lg" breakPoints="lg">
-                <h1 className={titlePage} data-aos="fade-right">{title}</h1>
-                <p className={txt} data-aos="fade-left">{descriptionOfTitle}</p>
+                <h1 className={titlePage} data-aos="fade-right">
+                    {title}
+                </h1>
+                <p className={txt} data-aos="fade-left">
+                    {descriptionOfTitle}
+                </p>
                 <div className={flexUseImg} data-aos="zoom-in">
                     <img
                         className={img}
@@ -47,6 +51,7 @@ export default function LayoutForBlogPages({
                         <ClothesCards
                             category="pageRecomendation"
                             disabled={false}
+                            buttonOff={false}
                         />
                     </div>
                 </div>
@@ -57,6 +62,7 @@ export default function LayoutForBlogPages({
                     <ClothesCards
                         category="pageRecomendation"
                         disabled={false}
+                        buttonOff={false}
                     />
                 </div>
                 <div className={flexVideo} data-aos="fade-up">
@@ -69,6 +75,7 @@ export default function LayoutForBlogPages({
                         <ClothesCards
                             category="pageRecomendation"
                             disabled={false}
+                            buttonOff={false}
                         />
                     </div>
                     <img

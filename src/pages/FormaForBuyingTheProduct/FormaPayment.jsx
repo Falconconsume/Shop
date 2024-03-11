@@ -148,7 +148,6 @@ const FormaPayment = () => {
                                     />
                                 </Form>
                             </Formik>
-                            <ToastContainer />
 
                             <OrderDetails
                                 cards={cards}
@@ -172,6 +171,18 @@ const FormaPayment = () => {
                     </>
                 )}
             </Container>
+            <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
             <Footer />
         </>
     )

@@ -7,6 +7,7 @@ import HeaderMainSection from '../../../Shop/MainPart/components/Header/HeaderMa
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import FavoriteIcons from './FavoriteIcon'
 
 export default function ClothesCards({
     item,
@@ -24,7 +25,7 @@ export default function ClothesCards({
         listOfItem,
         hoverItem,
         lineThrough,
-        overlay,
+        desiredIcon,
     } = style
 
     const [ShowDetailsAboutItem, setShowDetailsAboutItem] = useState(false)
@@ -67,7 +68,9 @@ export default function ClothesCards({
                                 key={e.id}
                             >
                                 <div className={hoverItem}>
-                                    {' '}
+                                    <li className={desiredIcon}>
+                                        <FavoriteIcons item={e} />
+                                    </li>
                                     <Link to={`/additional-info/${e.id}`}>
                                         <img
                                             className={img}

@@ -5,6 +5,7 @@ import { Container } from '@mui/material'
 import Filter from '../../Shop/Filter/Filter'
 import Footer from '../../../components/Footer/Footer'
 import style from '../Sort.module.scss'
+import { ToastContainer } from 'react-toastify'
 
 export function SalesItems() {
     return (
@@ -19,6 +20,18 @@ export function SalesItems() {
                 </div>
             </Container>
             <Footer />
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </>
     )
 }

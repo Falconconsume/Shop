@@ -71,6 +71,11 @@
     display:flex;
 }
 
+.desiredIcon {
+    position:absolute;
+    left:0
+}
+
 .color {
     display: flex;
     justify-content: space-between;

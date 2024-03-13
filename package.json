@@ -1,6 +1,7 @@
 {
   "name": "shop_dresses",
   "version": "0.1.0",
+  "homepage": "https://falconconsume.github.io/FalconConsume.github.io",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",

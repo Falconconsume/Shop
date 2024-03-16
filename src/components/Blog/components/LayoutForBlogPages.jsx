@@ -31,7 +31,7 @@ export default function LayoutForBlogPages({
     return (
         <>
             <Header data-aos="fade-down" />
-            <Container maxWidth="lg" breakPoints="lg">
+            <Container maxWidth="lg" breakpoints="lg">
                 <h1 className={titlePage} data-aos="fade-right">
                     {title}
                 </h1>

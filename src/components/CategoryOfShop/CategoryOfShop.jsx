@@ -8,7 +8,7 @@ export default function CategoryOfShop({ content }) {
     const { flexPhotos, category, img, title, titleSection } = style
 
     return (
-        <Container maxWidth="lg" breakPoints="lg">
+        <Container maxWidth="lg" breakpoints="lg">
             <h1 className={titleSection}>{content}</h1>
             <ul className={flexPhotos}>
                 {sections.map((el = []) => (
